@@ -13,7 +13,7 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
     
     private var _videoView: VideoViewManager!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -34,16 +34,16 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
     }
     
     func vehicleInit(){
-#if Romo
+        #if Romo
             let peerId = "Romo-" + UIDevice.currentDevice().name
             self._skyway = Skyway(peerId: peerId)
             self._vehicle = RomoDrive(socket: _skyway)
             _skyway.delegates.append(self)
-#elseif Double
+            #elseif Double
             let peerId = "Double-" + UIDevice.currentDevice().name
             self._skyway = Skyway(peerId: peerId)
             self._vehicle = DoubleDrive(socket: _skyway)
-#endif
+        #endif
         _skyway.delegates.append(_vehicle)
         
     }
@@ -52,6 +52,8 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
 #if Romo
     private var romoView = RMCharacter.Romo()
     private var romoViewFlag : Bool = false
+    
+
     
     func addRomoView(){
         self.dispatch_async_main {
@@ -76,7 +78,7 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
     func onMessage(dict: Dictionary<String, AnyObject>){
         let type = dict["type"] as! String!
         if(type != nil){
-            var flag = dict["flag"] as! Bool! == true
+            let flag = dict["flag"] as! Bool! == true
             switch type{
                 case "Romo":
                     if(flag){
@@ -90,7 +92,7 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
         }
     
     }
-    
+
 #elseif Double
     func onMessage(dict: Dictionary<String, AnyObject>){
         return
@@ -98,7 +100,7 @@ class MainController: UIViewController, NWObserver ,AVAudioPlayerDelegate{
     
 #endif
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     }
 }

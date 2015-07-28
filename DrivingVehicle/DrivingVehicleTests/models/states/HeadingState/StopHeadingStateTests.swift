@@ -55,7 +55,7 @@ class StopHeadingStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMockH1(exception: _exception)
         
-        var option = HeadingStateOptions(doStart: true, direction: .Down)
+        let option = HeadingStateOptions(doStart: true, direction: .Down)
         _headingStateManager.state().headingStateChanged(_headingStateManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_headingStateManager.state().status(),
@@ -73,7 +73,7 @@ class StopHeadingStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMockH1(exception: _exception)
         
-        var option = HeadingStateOptions(doStart: false, direction: .Down)
+        let option = HeadingStateOptions(doStart: false, direction: .Down)
         _headingStateManager.state().headingStateChanged(_headingStateManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_headingStateManager.state().status(),
@@ -85,7 +85,7 @@ class StopHeadingStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMockH1(exception: _exception)
         
-        var option = HeadingStateOptions(doStart: true, direction: .Up)
+        let option = HeadingStateOptions(doStart: true, direction: .Up)
         _headingStateManager.state().headingStateChanged(_headingStateManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_headingStateManager.state().status(),
@@ -103,7 +103,7 @@ class StopHeadingStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMockH1(exception: _exception)
         
-        var option = HeadingStateOptions(doStart: false, direction: .Up)
+        let option = HeadingStateOptions(doStart: false, direction: .Up)
         _headingStateManager.state().headingStateChanged(_headingStateManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_headingStateManager.state().status(),

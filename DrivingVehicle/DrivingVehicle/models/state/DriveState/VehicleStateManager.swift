@@ -39,8 +39,6 @@ enum VehicleStatus{
             return "RotatingLeft"
         case RotatingRight:
             return "RotatingRight"
-        default:
-            return "error"
         }
     }
 }

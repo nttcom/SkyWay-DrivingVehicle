@@ -20,8 +20,6 @@ enum HeadingStatus{
             return "HeadingDown"
         case HeadingUp:
             return "HeadingUp"
-        default:
-            return "error"
         }
     }
 }

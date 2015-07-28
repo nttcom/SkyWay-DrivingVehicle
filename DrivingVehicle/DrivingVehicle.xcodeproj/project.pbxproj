@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA67A4161B4DFB0A0013FD04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */; };
-		CA67A4171B4DFB170013FD04 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071D1A4C043A00262E2A /* CoreMotion.framework */; };
+		CAC45B041B4E0555006D20D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */; };
+		CAC45B051B4E055E006D20D5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071D1A4C043A00262E2A /* CoreMotion.framework */; };
 		CAEE3B4D1B4A3ED5000385BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */; };
 		E90F02C01A5A80610070989E /* StopHeadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BE1A5A80610070989E /* StopHeadingState.swift */; };
 		E90F02C11A5A80610070989E /* StopHeadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BE1A5A80610070989E /* StopHeadingState.swift */; };
@@ -232,8 +232,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA67A4171B4DFB170013FD04 /* CoreMotion.framework in Frameworks */,
-				CA67A4161B4DFB0A0013FD04 /* SystemConfiguration.framework in Frameworks */,
+				CAC45B051B4E055E006D20D5 /* CoreMotion.framework in Frameworks */,
+				CAC45B041B4E0555006D20D5 /* SystemConfiguration.framework in Frameworks */,
 				E9C0449D1A5AA2C300FD86F8 /* ExternalAccessory.framework in Frameworks */,
 				E9C0449A1A5A9F9300FD86F8 /* AVFoundation.framework in Frameworks */,
 				E9C0447C1A5A9D4900FD86F8 /* QuartzCore.framework in Frameworks */,
@@ -525,9 +525,10 @@
 		E98F6B471A427504007DE023 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "NTT Communications";
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Toshiya Nakakura";
 				TargetAttributes = {
 					E98F6B4E1A427504007DE023 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -543,7 +544,7 @@
 				};
 			};
 			buildConfigurationList = E98F6B4A1A427504007DE023 /* Build configuration list for PBXProject "DrivingVehicle" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -744,6 +745,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NTT Communications Corporation";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -760,7 +762,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -813,6 +815,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
@@ -821,6 +824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DRomo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ntt.Romo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrivingVehicle/DrivingVehicle-Bridging-Header.h";
@@ -837,6 +841,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
@@ -845,6 +850,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DRomo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ntt.Romo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrivingVehicle/DrivingVehicle-Bridging-Header.h";
@@ -868,6 +874,7 @@
 				);
 				INFOPLIST_FILE = DrivingVehicleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ntt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -884,6 +891,7 @@
 				);
 				INFOPLIST_FILE = DrivingVehicleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ntt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -904,6 +912,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DDouble";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ntt.Double;
 				PRODUCT_NAME = Double;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrivingVehicle/DrivingVehicle-Bridging-Header.h";
@@ -928,6 +937,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DDouble";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ntt.Double;
 				PRODUCT_NAME = Double;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrivingVehicle/DrivingVehicle-Bridging-Header.h";

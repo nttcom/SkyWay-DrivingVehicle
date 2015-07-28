@@ -29,8 +29,6 @@ class DrivingBackwardState: VehicleStateProtocol {
                 manager.setState(DrivingForwardState())
                 vehicle.driveForward()
             }
-        default:
-            return
         }
     }
     
@@ -46,8 +44,6 @@ class DrivingBackwardState: VehicleStateProtocol {
                 manager.setState(DrivingDiagonallyBackwardRightState())
                 vehicle.driveDiagonallyBackwardRight()
             }
-        default:
-            return
         }
     }
 }

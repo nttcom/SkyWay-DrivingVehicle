@@ -29,8 +29,6 @@ class StopMovingState: VehicleStateProtocol {
                 manager.setState(DrivingBackwardState())
                 vehicle.driveBackward()
             }
-        default:
-            return
         }
     }
     
@@ -46,8 +44,6 @@ class StopMovingState: VehicleStateProtocol {
                 manager.setState(RotatingRightState())
                 vehicle.rotateRight()
             }
-        default:
-            return
         }
     }
 }

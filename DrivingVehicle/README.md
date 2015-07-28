@@ -2,8 +2,8 @@
 
 The application for iOS devices of connecting Romo/Double.
 
-This app is currently compatible with Swift1.2  
-The Swift2 (preliminary) version can be found the swift2 branch
+This app is currently compatible with Swift2 beta4.  
+The Swift1.2 version can be found the master branch.
 
 ### How to build
  1. Open "DrivingVehicle.xcodeproj"
@@ -36,8 +36,8 @@ The Swift2 (preliminary) version can be found the swift2 branch
 
 Romo/Doubleに接続するiOS端末用アプリ。
 
-現在Swift1.2に対応しています。Swift2(Xcode7)には対応していません。  
-Swift2版(暫定版)はswift2 branchにあります。
+現在Swift2 beta4(Xcode7)に対応しています。Swift1.2には対応していません。  
+Swift1.2版はmaster branchにあります。
 
 ### ビルド方法
  1. "DrivingVehicle.xcodeproj"を開く

@@ -119,11 +119,11 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
         let currentDevice: UIDevice! = UIDevice.currentDevice()
         
         if (currentDevice !== nil) {
-            var double_battery: Float = DRDouble.sharedDouble().batteryPercent
+            let double_battery: Float = DRDouble.sharedDouble().batteryPercent
             currentDevice.batteryMonitoringEnabled = true
-            var ios_battery: Float = currentDevice.batteryLevel
+            let ios_battery: Float = currentDevice.batteryLevel
             
-            var send_dict: Dictionary = [
+            let send_dict: Dictionary = [
                 "VehicleBattery": Double(double_battery),
                 "IOSBattery": Double(ios_battery)
             ]

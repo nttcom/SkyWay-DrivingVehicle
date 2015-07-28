@@ -65,7 +65,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMock7(exception: _exception)
         
-        var option = MovingStateOptions(doStart: true, direction: .Front)
+        let option = MovingStateOptions(doStart: true, direction: .Front)
         _vehicleStatusManager.state().moveStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -78,7 +78,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMock7(exception: _exception)
         
-        var option = MovingStateOptions(doStart: false, direction: .Front)
+        let option = MovingStateOptions(doStart: false, direction: .Front)
         _vehicleStatusManager.state().moveStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -96,7 +96,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMock7(exception: _exception)
         
-        var option = MovingStateOptions(doStart: true, direction: .Back)
+        let option = MovingStateOptions(doStart: true, direction: .Back)
         _vehicleStatusManager.state().moveStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -114,7 +114,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMock7(exception: _exception)
         
-        var option = MovingStateOptions(doStart: false, direction: .Back)
+        let option = MovingStateOptions(doStart: false, direction: .Back)
         _vehicleStatusManager.state().moveStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -126,7 +126,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMock7(exception: _exception)
         
-        var option = RotationStateOptions(doStart: true, direction: .Left)
+        let option = RotationStateOptions(doStart: true, direction: .Left)
         _vehicleStatusManager.state().roteteStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -144,7 +144,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMock7(exception: _exception)
         
-        var option = RotationStateOptions(doStart: false, direction: .Left)
+        let option = RotationStateOptions(doStart: false, direction: .Left)
         _vehicleStatusManager.state().roteteStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -156,7 +156,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = ExceptationMock()
         _mock = VehicleMock7(exception: _exception)
         
-        var option = RotationStateOptions(doStart: true, direction: .Right)
+        let option = RotationStateOptions(doStart: true, direction: .Right)
         _vehicleStatusManager.state().roteteStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),
@@ -168,7 +168,7 @@ class DrivingDiagonallyForwardRightStateTests: XCTestCase {
         _exception = expectationWithDescription("StateChangedException")
         _mock = VehicleMock7(exception: _exception)
         
-        var option = RotationStateOptions(doStart: false, direction: .Right)
+        let option = RotationStateOptions(doStart: false, direction: .Right)
         _vehicleStatusManager.state().roteteStateChanged(_vehicleStatusManager, vehicle: _mock, options: option)
         
         XCTAssertEqual(_vehicleStatusManager.state().status(),

@@ -29,8 +29,6 @@ class HeadingUpState: HeadingStateProtocol {
                 manager.setState(StopHeadingState())
                 vehicle.stopHeading()
             }
-        default:
-            return
         }
     }
 }

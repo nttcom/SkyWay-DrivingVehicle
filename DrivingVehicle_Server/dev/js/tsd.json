@@ -1,0 +1,33 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "dev/js/typings/tsd.d.ts",
+  "installed": {
+    "peerjs/peerjs.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "webrtc/RTCPeerConnection.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "webrtc/MediaStream.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "gamepad/gamepad.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "eventemitter2/eventemitter2.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    }
+  }
+}

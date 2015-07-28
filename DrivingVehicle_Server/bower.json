@@ -1,0 +1,32 @@
+{
+  "name": "DriveVehicleServer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nttcom/Romo-SkyWay",
+  "authors": [
+    "Sho Yamamura <sho.yamamura@ntt.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.5",
+    "eventemitter2": "~0.4.14",
+    "lodash": "~2.4.1",
+    "jquery": "~2.1.4",
+    "fontawesome": "~4.3.0"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "/": "dist"
+    },
+    "fontawesome": {
+      "css": "css/*.*",
+      "fonts": "fonts/*.*"
+    }
+  }
+}

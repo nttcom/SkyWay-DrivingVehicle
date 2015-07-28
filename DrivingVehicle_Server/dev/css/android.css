@@ -1,0 +1,162 @@
+body{
+    margin:0px;
+    background-color: lightyellow;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+#race-window{
+    width:100%;
+    height:100%;
+    background-color: black;
+    float:left;
+}
+#remote-video {
+    width:100%;
+    background-color: #eee;
+    z-index: 0;
+}
+div#local-trim{
+    position: absolute;
+    width: 9vh;
+    height: 16vh;
+    left:0%;
+    bottom:0vw;
+    z-index: 10;
+    overflow: hidden;
+}
+#local-video, #romo-view {
+    position: absolute;
+    height:100%;
+}
+#local-video{
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+}
+
+#romo-view {
+    width: 9vh;
+    height: 16vh;
+}
+
+
+div#top{
+    background-color: #000000;
+    width:100%;
+    height:10vh;
+    left:0%;
+    top:0%;
+    z-index: 1;
+}
+
+.top-icon{
+    width: auto;
+    height:10vh;
+    top:0%;
+    z-index: 2;
+}
+
+#Gallery{
+    position:absolute;
+}
+
+
+#Camera{
+    position:absolute;
+    left: 11vh;
+}
+
+#Romo{
+    float:right;
+}
+
+#controller{
+    background-color: #000000;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 20vh;
+    z-index: 5;
+}
+
+.arrow{
+    position: absolute;
+}
+
+.img-hover{
+    opacity: 0.3;
+}
+
+#left{
+    top: 2.5vh;
+    left: 18%;
+    z-index: 10;
+}
+
+#left > img{
+    width: auto;
+    height: 15vh;
+}
+
+#right{
+    top: 2.5vh;
+    right: 18%;
+    z-index: 10;
+}
+
+#right > img{
+    width: auto;
+    height: 15vh;
+    transform: rotateY(180deg);
+}
+
+#front{
+    width:100%;
+    top: 0;
+    text-align: center;
+}
+
+#front > img{
+    width: auto;
+    height: 12vh;
+}
+
+#back{
+    width:100%;
+    bottom: 0;
+    text-align: center;
+}
+
+#back > img{
+    width: auto;
+    height: 8vh;
+    transform: rotateX(180deg);
+}
+
+#photo-div{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+#photo-lib{
+    position: absolute;
+    overflow: scroll;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    height: 90vh;
+    top: 10vh;
+    left: 0%;
+    z-index: 21;
+}
+
+#photo-lib img{
+    width:30vw;
+    height:auto;
+    margin-left: 2.5vw;
+    margin-top: 2.5vh;
+}

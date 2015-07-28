@@ -1,0 +1,43 @@
+table{
+    width: 100%;
+}
+tr{
+    border: 1px solid #ddd;
+}
+th, td{
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+th{
+    background: #f4f4f4;
+}
+.peer-list th, .peer-list td{
+    width: 20%;
+    text-align: left;
+}
+button{
+    width:100%
+}
+@media only screen and (max-width: 480px) {
+    .peer-list .PConly{
+        display: none;
+    }
+    .peer-list {
+        margin: 0 -5px;
+    }
+    .peer-list tr {
+        border: none;
+        display:block;
+        margin-bottom: 10px;
+    }
+    .peer-list th {
+        display:block;
+        width: 100%;
+    }
+    .peer-list td {
+        display: list-item;
+        width: 90%;
+        margin-left: 10%;
+        border:none;
+    }
+}

@@ -1,0 +1,42 @@
+*.js
+*.js.map
+!DrivingVehicle_Server/Gruntfile.js
+DrivingVehicle/DrivingVehicle/frameworks/*
+!.gitkeep
+DrivingVehicle_Server/node_modules
+DrivingVehicle_Server/dev/bower_components
+DrivingVehicle_Server/dev/js/typings
+DrivingVehicle_Server/dist/*
+.idea
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# Uneccessary files
+.DS_Store
+*~
+*.swp
+
+# No binaries
+*.bin
+
+# Vagrant
+.vagrant
+
+

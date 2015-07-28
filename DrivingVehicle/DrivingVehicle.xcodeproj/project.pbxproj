@@ -528,7 +528,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Toshiya Nakakura";
+				ORGANIZATIONNAME = "NTT Communications";
 				TargetAttributes = {
 					E98F6B4E1A427504007DE023 = {
 						CreatedOnToolsVersion = 6.1.1;

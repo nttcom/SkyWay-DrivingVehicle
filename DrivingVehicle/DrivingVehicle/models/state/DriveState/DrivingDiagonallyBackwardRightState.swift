@@ -17,37 +17,39 @@ class DrivingDiagonallyBackwardRightState: VehicleStateProtocol {
         vehicle.stopDriving()
     }
     
-    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions){
+    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions, value: NSNumber){
         switch options.direction{
         case .Back:
             if(!options.doStart){
                 manager.setState(RotatingRightState())
-                vehicle.rotateRight()
+                vehicle.rotateRight(nil)
+            }else{
+                manager.setState(DrivingDiagonallyBackwardRightState())
+                vehicle.driveDiagonallyBackwardRight(value, radius:nil)
             }
         case .Front:
             if(options.doStart){
                 manager.setState(DrivingDiagonallyForwardRightState())
-                vehicle.driveDiagonallyForwardRight()
+                vehicle.driveDiagonallyForwardRight(value, radius:nil)
             }
-        default:
-            return
         }
     }
     
-    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions){
+    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions, value: NSNumber){
         switch options.direction{
         case .Right:
             if(!options.doStart){
                 manager.setState(DrivingBackwardState())
-                vehicle.driveBackward()
+                vehicle.driveBackward(nil)
+            }else{
+                manager.setState(DrivingDiagonallyBackwardRightState())
+                vehicle.driveDiagonallyBackwardRight(nil, radius:value)
             }
         case .Left:
             if(options.doStart){
                 manager.setState(DrivingDiagonallyBackwardLeftState())
-                vehicle.driveDiagonallyBackwardLeft()
+                vehicle.driveDiagonallyBackwardLeft(nil, radius:value)
             }
-        default:
-            return
         }
     }
 }

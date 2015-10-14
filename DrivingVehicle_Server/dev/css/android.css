@@ -13,7 +13,7 @@ body{
 #remote-video {
     width:100%;
     background-color: #eee;
-    z-index: 0;
+    z-index: 10;
 }
 div#local-trim{
     position: absolute;
@@ -50,6 +50,14 @@ div#top{
     z-index: 1;
 }
 
+div#top-left{
+    float: left;
+}
+
+div#top-right{
+    float: right;
+}
+
 .top-icon{
     width: auto;
     height:10vh;
@@ -57,18 +65,8 @@ div#top{
     z-index: 2;
 }
 
-#Gallery{
-    position:absolute;
-}
-
-
-#Camera{
-    position:absolute;
-    left: 11vh;
-}
-
-#Romo{
-    float:right;
+.top-icon:not(:first-child){
+    margin-left: 1vh;
 }
 
 #controller{

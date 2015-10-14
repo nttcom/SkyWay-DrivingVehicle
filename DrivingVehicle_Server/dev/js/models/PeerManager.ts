@@ -47,8 +47,10 @@ module Vehicle {
                 $local_video_dom.prop('src', URL.createObjectURL(stream));
 
                 (<any>window).localStream = stream;
+
                 var call = this._peer.call(peerId, stream);
                 call.on('stream', (stream)=>{
+                    this.emit("mediaConnection-open",null);
                     $remote_video_dom.prop('src', URL.createObjectURL(stream));
                 });
             }, ()=>{ alert("Failed to access the webcam and microphone."); });
@@ -60,12 +62,13 @@ module Vehicle {
             this._dataChannel = this._peer.connect(peerId, {
                 label: orient,
                 serialization: 'binary',
-                reliable: true
+                reliable: false
             });
 
             //data channel onopen
             this._dataChannel.on('open', ()=>{
                 this._dataChannel.on('data',(data)=>{
+                    console.log(data);
                     this.emit("dataChannel-data",data);
                 });
                 this.emit("dataChannel-open",null);
@@ -73,6 +76,7 @@ module Vehicle {
         }
 
         public sendData(message: Object){
+            console.log(message)
             this._dataChannel.send(message);
         }
     }

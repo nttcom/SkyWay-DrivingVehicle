@@ -17,7 +17,7 @@ The server for the web app that connects to the DrivingVehicle application using
   DrivingVehicle_Server$ grunt setup
   ```
 
- 1. Set _APIKey to your API key registered on SkyWay.io at the top of/dev/js/views/pages/index.ts and /dev/js/models/PeerManager.ts
+ 1. Set _APIKey to your API key registered on SkyWay.io at the top of /dev/js/views/pages/index.ts and /dev/js/models/PeerManager.ts
  
  ```javascript
  //// inside index.ts and PeerManager.ts
@@ -37,16 +37,19 @@ The server for the web app that connects to the DrivingVehicle application using
  1. Access index.html in the dist folder using a Web browser (Chrome is recommended)
  1. Select the mode for the device you want to access<sup>*1</sup>
   - ALL: nomal mode(landscape, 16:9 is recommended)
-  - ALL (mute): mute ver of nomal mode
   - Android: mode for Android(portrait、tested on Android Chrome 43)
   - Race: simple portrait mode (w/o photo function etc.)
  1. How to Control
-  - u (Android: swiping up on the robot's view): look upward
-  - n (Android: swiping down): look downward
+  - q (Android: swiping up on the robot's view): look upward
+  - a (Android: swiping down): look downward
+  - u (except for Android): speed up
+  - n (except for Android): slow down
   - up(↑): drive forward
   - down(↓): drive backward
   - left(←): rotate left
   - right(→): rotate right
+  
+  please check other key bindings in /dev/js/views/Inputs/Keyboard.ts
 
 > *1. If the iOS device is not listed, please check below
 >   - DrivingVehicle application
@@ -103,12 +106,16 @@ DrivingVehicleで動作しているアプリに対してWebRTCで接続し、 �
   - Android: Android用モード(縦画面、Android Chrome 43で動作確認済み)
   - Race: 縦画面モード(写真機能等は無し)
  1. 操作方法
-  - u (Android: robot側の映像を↑にスワイプ): 上を向く
-  - n (Android: ↓にスワイプ): 下を向く
+  - q (Android: robot側の映像を↑にスワイプ): 上を向く
+  - a (Android: ↓にスワイプ): 下を向く
+  - u (Android以外): シフトアップ
+  - n (Android以外): シフトダウン
   - 上(↑): 前進
   - 下(↓): 後退
   - 左(←): 左回転
   - 右(→): 右回転
+  
+　他のキー操作は /dev/js/views/Inputs/Keyboard.ts を見てください
 
 > *1. もし表示されない場合は、以下を確認してください
 >  - DrivingVehicleアプリ

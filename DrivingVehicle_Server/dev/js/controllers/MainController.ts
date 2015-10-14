@@ -1,5 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 /// <reference path="../views/Inputs/UserInputs.ts" />
+/// <reference path="../views/Inputs/VehicleMessage.ts" />
 /// <reference path="../views/Inputs/Gamepad.ts" />
 /// <reference path="../views/Inputs/Keyboard.ts" />
 /// <reference path="../views/Inputs/RaceDashboard.ts" />
@@ -16,8 +17,8 @@ module Vehicle {
         constructor(type: string, $local_video_dom?: JQuery, $remote_video_dom?: JQuery) {
             var args = this._get_url_vars();
             this._emitters = {};
-            this._mainUserView = new Vehicle.MainUserView;
-            this._raceDashboard = new RaceDashboard();
+            this._mainUserView = new Vehicle.MainUserView(args["Double"]);
+            this._raceDashboard = new Vehicle.RaceDashboard(args["Double"]);
 
             if (!("peerId" in args)) {
                 window.alert("Please specify the peer ID (with URL query)");
@@ -28,29 +29,34 @@ module Vehicle {
             this._peerManager = new PeerManager(peerId);
 
             if(type == "video"){
-                this._peerManager.setupVideo(peerId, true, true, $local_video_dom, $remote_video_dom);
+                this._setupVideo(peerId, true, true, $local_video_dom, $remote_video_dom);
                 this._setupData(peerId);
             } else if(type === "mute"){
-                this._peerManager.setupVideo(peerId, true, false, $local_video_dom, $remote_video_dom);
+                this._setupVideo(peerId, true, false, $local_video_dom, $remote_video_dom);
                 this._setupData(peerId);
             }
+        }
+
+        private _setupVideo(peerId: string, videoFlag: boolean, audioFlag: boolean, $local_video_dom: JQuery, $remote_video_dom: JQuery){
+            this._peerManager.setupVideo(peerId, videoFlag, audioFlag, $local_video_dom, $remote_video_dom);
         }
 
         private _setupData(peerId: string) {
             //init GamePad and listen event
             var gamepad = new Vehicle.Gamepad();
-            gamepad.addListener("inputs", this._onMessage);
+            gamepad.addListener("inputs", this._onInput);
             this._emitters["gamepad"] = gamepad;
 
             //init keyboard and listen event
             var keyboard = new Vehicle.Keyboard();
-            keyboard.addListener("inputs", this._onMessage);
+            keyboard.addListener("inputs", this._onInput);
             this._emitters["keyboard"] = keyboard;
 
             this._peerManager.setupData(peerId, 'landscape');
 
             this._peerManager.addListener("dataChannel-open",this._openDataConnection);
             this._peerManager.addListener("dataChannel-data",this._raceDashboard.onData);
+            this._peerManager.addListener("dataChannel-data",this._mainUserView.onData);
         }
 
         private _get_url_vars(): Object{
@@ -59,28 +65,47 @@ module Vehicle {
             for(var i = 0; i < temp_params.length; i++) {
                 var params = temp_params[i].split('=');
                 args[params[0]] = params[1];
+                if (params[1].indexOf("Double") === 0) {
+                    args["Double"]=true;
+                }
             }
             return args;
         }
 
-        private _onMessage = (inputs: UserInputs)=>{
-            if(inputs.type === Vehicle.InputType.Button6 && inputs.flag){
-                this._mainUserView.takePhoto();
+        private _onInput = (inputs: UserInputs)=>{
+            var list:string[]=this._mainUserView.getMsgList();
+            if(list.indexOf(String(inputs.type)) >= 0){
+                this._mainUserView.onInput(inputs);
+            }else{
+                if(inputs.type === InputType.Front || inputs.type === InputType.Back){
+                    inputs.value = this._raceDashboard.getGearValue();
+                }
+                this._send(inputs);
             }
-            this._raceDashboard.stateChanged(inputs);
-            this._peerManager.sendData(inputs);
+            this._raceDashboard.onInput(inputs);
         };
 
         private _openDataConnection = ()=>{
-            this._mainUserView.addListener("message", this._onMessage);
+            this._mainUserView.addListener("message", this._send);
+            this._raceDashboard.addListener("message", this._send);
 
-            //get battery info
-            var msg = {type:"Battery", flag:true};
-            this._peerManager.sendData(msg);
+            var msg = {type:InputType.GetCamera, flag:true};
+            this._send(msg);
+
+            //get vehicle state
+            setTimeout(()=>{
+                msg = {type:InputType.GetVehicleStatus, flag:true};
+                this._send(msg);
+            },1000);
+
             setInterval(()=>{
-                this._peerManager.sendData(msg);
+                this._send(msg);
             },60000)
         };
+
+        private _send = (inputs: UserInputs)=>{
+            this._peerManager.sendData(inputs)
+        }
     }
 }
 

@@ -17,37 +17,39 @@ class DrivingDiagonallyForwardLeftState: VehicleStateProtocol {
         vehicle.stopDriving()
     }
     
-    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions){
+    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions, value: NSNumber){
         switch options.direction{
         case .Front:
             if(!options.doStart){
                 manager.setState(RotatingLeftState())
-                vehicle.rotateLeft()
+                vehicle.rotateLeft(nil)
+            }else{
+                manager.setState(DrivingDiagonallyForwardLeftState())
+                vehicle.driveDiagonallyForwardLeft(value, radius:nil)
             }
         case .Back:
             if(options.doStart){
                 manager.setState(DrivingDiagonallyBackwardLeftState())
-                vehicle.driveDiagonallyBackwardLeft()
+                vehicle.driveDiagonallyBackwardLeft(value, radius:nil)
             }
-        default:
-            return
         }
     }
     
-    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions){
+    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions, value: NSNumber){
         switch options.direction{
         case .Left:
             if(!options.doStart){
                 manager.setState(DrivingForwardState())
-                vehicle.driveForward()
+                vehicle.driveForward(nil)
+            }else{
+                manager.setState(DrivingDiagonallyForwardLeftState())
+                vehicle.driveDiagonallyForwardLeft(nil, radius:value)
             }
         case .Right:
             if(options.doStart){
                 manager.setState(DrivingDiagonallyForwardRightState())
-                vehicle.driveDiagonallyForwardRight()
+                vehicle.driveDiagonallyForwardRight(nil, radius:value)
             }
-        default:
-            return
         }
     }
 }

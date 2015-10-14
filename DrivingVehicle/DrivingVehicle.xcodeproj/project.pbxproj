@@ -7,56 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4CC7661B6F4889004B8B6C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4CC7651B6F4889004B8B6C /* CoreVideo.framework */; };
+		CA4CC7681B6F48A5004B8B6C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4CC7671B6F48A5004B8B6C /* VideoToolbox.framework */; };
+		CA4CC8281B71E87C004B8B6C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4CC7651B6F4889004B8B6C /* CoreVideo.framework */; };
+		CA4CC8291B71E87C004B8B6C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4CC7671B6F48A5004B8B6C /* VideoToolbox.framework */; };
 		CA67A4161B4DFB0A0013FD04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */; };
 		CA67A4171B4DFB170013FD04 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071D1A4C043A00262E2A /* CoreMotion.framework */; };
 		CAEE3B4D1B4A3ED5000385BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */; };
 		E90F02C01A5A80610070989E /* StopHeadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BE1A5A80610070989E /* StopHeadingState.swift */; };
-		E90F02C11A5A80610070989E /* StopHeadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BE1A5A80610070989E /* StopHeadingState.swift */; };
 		E90F02C21A5A80610070989E /* VehicleHeadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BF1A5A80610070989E /* VehicleHeadingManager.swift */; };
-		E90F02C31A5A80610070989E /* VehicleHeadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02BF1A5A80610070989E /* VehicleHeadingManager.swift */; };
 		E90F02D41A5A81C30070989E /* RomoDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02D21A5A81C20070989E /* RomoDrive.swift */; };
 		E90F02D61A5A81C30070989E /* VehicleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02D31A5A81C20070989E /* VehicleTemplate.swift */; };
-		E90F02D71A5A81C30070989E /* VehicleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02D31A5A81C20070989E /* VehicleTemplate.swift */; };
 		E92C4B531A7F4197008E66E2 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E92C4B521A7F4197008E66E2 /* cannon.mp3 */; };
 		E92C4B541A7F4197008E66E2 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E92C4B521A7F4197008E66E2 /* cannon.mp3 */; };
 		E943070D1A4BFB0400262E2A /* Skyway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E943070C1A4BFB0400262E2A /* Skyway.swift */; };
 		E94307211A4C046600262E2A /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071F1A4C044100262E2A /* ExternalAccessory.framework */; };
 		E94307221A4C046600262E2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071D1A4C043A00262E2A /* CoreMotion.framework */; };
 		E94307231A4C046600262E2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071B1A4C043100262E2A /* QuartzCore.framework */; };
-		E966735B1A43EDE600F7BC09 /* StopMovingStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966735A1A43EDE600F7BC09 /* StopMovingStateTests.swift */; };
 		E966735D1A43EE7100F7BC09 /* DrivingForwardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966735C1A43EE7100F7BC09 /* DrivingForwardState.swift */; };
 		E966735F1A43EEAA00F7BC09 /* DrivingBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966735E1A43EEAA00F7BC09 /* DrivingBackward.swift */; };
-		E96673601A43EEAA00F7BC09 /* DrivingBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966735E1A43EEAA00F7BC09 /* DrivingBackward.swift */; };
-		E96673611A43EEB800F7BC09 /* DrivingForwardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966735C1A43EE7100F7BC09 /* DrivingForwardState.swift */; };
 		E96673661A43EF5800F7BC09 /* RotatingLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673651A43EF5800F7BC09 /* RotatingLeftState.swift */; };
-		E96673671A43EF5800F7BC09 /* RotatingLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673651A43EF5800F7BC09 /* RotatingLeftState.swift */; };
 		E96673691A43EF6100F7BC09 /* RotatingRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673681A43EF6100F7BC09 /* RotatingRightState.swift */; };
-		E966736A1A43EF6100F7BC09 /* RotatingRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673681A43EF6100F7BC09 /* RotatingRightState.swift */; };
 		E966736C1A43EFAD00F7BC09 /* DrivingDiagonallyForwardLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966736B1A43EFAD00F7BC09 /* DrivingDiagonallyForwardLeftState.swift */; };
-		E966736D1A43EFAD00F7BC09 /* DrivingDiagonallyForwardLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966736B1A43EFAD00F7BC09 /* DrivingDiagonallyForwardLeftState.swift */; };
 		E966736F1A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966736E1A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift */; };
-		E96673701A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966736E1A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift */; };
 		E96673721A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673711A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift */; };
-		E96673731A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673711A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift */; };
 		E96673781A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673771A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift */; };
-		E96673791A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96673771A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift */; };
-		E96A3AC81A4A4A6D00531F26 /* DrivingBackwardStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3AC71A4A4A6D00531F26 /* DrivingBackwardStateTests.swift */; };
-		E96A3ACA1A4A4A9400531F26 /* ExceptationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3AC91A4A4A9400531F26 /* ExceptationMock.swift */; };
-		E96A3ACC1A4A4C8D00531F26 /* DrivingForwardStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3ACB1A4A4C8D00531F26 /* DrivingForwardStateTests.swift */; };
-		E96A3ACE1A4A4D8100531F26 /* RotatingLeftStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3ACD1A4A4D8100531F26 /* RotatingLeftStateTests.swift */; };
-		E96A3AD01A4A4E8B00531F26 /* RotatingRightStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3ACF1A4A4E8B00531F26 /* RotatingRightStateTests.swift */; };
-		E96A3AD21A4A4F4B00531F26 /* DrivingDiagonallyForwardLeftStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A3AD11A4A4F4B00531F26 /* DrivingDiagonallyForwardLeftStateTests.swift */; };
 		E971B7CD1A5A109E00044658 /* NWObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971B7CC1A5A109E00044658 /* NWObserver.swift */; };
-		E971B7CE1A5A10A700044658 /* NWObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971B7CC1A5A109E00044658 /* NWObserver.swift */; };
 		E98F6B551A427504007DE023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F6B541A427504007DE023 /* AppDelegate.swift */; };
 		E98F6B581A427504007DE023 /* DrivingVehicle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E98F6B561A427504007DE023 /* DrivingVehicle.xcdatamodeld */; };
 		E98F6B5D1A427504007DE023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98F6B5B1A427504007DE023 /* Main.storyboard */; };
 		E98F6B5F1A427504007DE023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98F6B5E1A427504007DE023 /* Images.xcassets */; };
 		E98F6B621A427504007DE023 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98F6B601A427504007DE023 /* LaunchScreen.xib */; };
 		E98F6BA21A42D846007DE023 /* VehicleStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F6BA11A42D846007DE023 /* VehicleStateManager.swift */; };
-		E98F6BA31A42D846007DE023 /* VehicleStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F6BA11A42D846007DE023 /* VehicleStateManager.swift */; };
 		E98F6BA51A42D8B5007DE023 /* StopMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F6BA41A42D8B5007DE023 /* StopMovingState.swift */; };
-		E98F6BA61A42D8B5007DE023 /* StopMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F6BA41A42D8B5007DE023 /* StopMovingState.swift */; };
 		E9B07B601A5B62D100B78E00 /* VideoViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B07B5F1A5B62D100B78E00 /* VideoViewManager.swift */; };
 		E9B07B611A5B62D100B78E00 /* VideoViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B07B5F1A5B62D100B78E00 /* VideoViewManager.swift */; };
 		E9C044621A5A9D4900FD86F8 /* VehicleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F02D31A5A81C20070989E /* VehicleTemplate.swift */; };
@@ -95,17 +78,9 @@
 		E9C044991A5A9EE900FD86F8 /* DoubleDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C044981A5A9EE900FD86F8 /* DoubleDrive.swift */; };
 		E9C0449A1A5A9F9300FD86F8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E5A32F1A4A9B2B0058DBD9 /* AVFoundation.framework */; };
 		E9C0449D1A5AA2C300FD86F8 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E943071F1A4C044100262E2A /* ExternalAccessory.framework */; };
-		E9DB8F2F1A4A50B600E93A94 /* DrivingDiagonallyForwardRightStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB8F2E1A4A50B600E93A94 /* DrivingDiagonallyForwardRightStateTests.swift */; };
 		E9DD8BF91A5A90C4001638C3 /* HeadingUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8BF81A5A90C4001638C3 /* HeadingUpState.swift */; };
-		E9DD8BFA1A5A90C4001638C3 /* HeadingUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8BF81A5A90C4001638C3 /* HeadingUpState.swift */; };
 		E9DD8BFC1A5A90CD001638C3 /* HeadingDownState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8BFB1A5A90CD001638C3 /* HeadingDownState.swift */; };
-		E9DD8BFD1A5A90CD001638C3 /* HeadingDownState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8BFB1A5A90CD001638C3 /* HeadingDownState.swift */; };
 		E9DD8BFF1A5A9143001638C3 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8BFE1A5A9143001638C3 /* MainController.swift */; };
-		E9DD8C031A5A917C001638C3 /* StopHeadingStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8C021A5A917C001638C3 /* StopHeadingStateTests.swift */; };
-		E9DD8C051A5A94E8001638C3 /* HeadingDownStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8C041A5A94E8001638C3 /* HeadingDownStateTests.swift */; };
-		E9DD8C071A5A9660001638C3 /* HeadingUpStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD8C061A5A9660001638C3 /* HeadingUpStateTests.swift */; };
-		E9E5A2DF1A4A529A0058DBD9 /* DrivingDiagonallyBackwardLeftStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5A2DE1A4A529A0058DBD9 /* DrivingDiagonallyBackwardLeftStateTests.swift */; };
-		E9E5A2E11A4A54640058DBD9 /* DrivingDiagonallyBackwardRightStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5A2E01A4A54640058DBD9 /* DrivingDiagonallyBackwardRightStateTests.swift */; };
 		E9E5A3381A4A9B2B0058DBD9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E5A32E1A4A9B2B0058DBD9 /* AudioToolbox.framework */; };
 		E9E5A3391A4A9B2B0058DBD9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E5A32F1A4A9B2B0058DBD9 /* AVFoundation.framework */; };
 		E9E5A33A1A4A9B2B0058DBD9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E5A3301A4A9B2B0058DBD9 /* CoreGraphics.framework */; };
@@ -118,24 +93,9 @@
 		E9E5A3411A4A9B2B0058DBD9 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E5A3371A4A9B2B0058DBD9 /* libstdc++.6.0.9.dylib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CA8C7FF81AAD857D00BFFB4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E98F6B471A427504007DE023 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E9C044601A5A9D4900FD86F8;
-			remoteInfo = Double;
-		};
-		E98F6B681A427504007DE023 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E98F6B471A427504007DE023 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E98F6B4E1A427504007DE023;
-			remoteInfo = DrivingVehicle;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		CA4CC7651B6F4889004B8B6C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CA4CC7671B6F48A5004B8B6C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E90F02BE1A5A80610070989E /* StopHeadingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopHeadingState.swift; sourceTree = "<group>"; };
 		E90F02BF1A5A80610070989E /* VehicleHeadingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleHeadingManager.swift; sourceTree = "<group>"; };
@@ -146,7 +106,6 @@
 		E943071B1A4C043100262E2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E943071D1A4C043A00262E2A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		E943071F1A4C044100262E2A /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		E966735A1A43EDE600F7BC09 /* StopMovingStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopMovingStateTests.swift; sourceTree = "<group>"; };
 		E966735C1A43EE7100F7BC09 /* DrivingForwardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingForwardState.swift; sourceTree = "<group>"; };
 		E966735E1A43EEAA00F7BC09 /* DrivingBackward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingBackward.swift; sourceTree = "<group>"; };
 		E96673651A43EF5800F7BC09 /* RotatingLeftState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLeftState.swift; sourceTree = "<group>"; };
@@ -155,12 +114,6 @@
 		E966736E1A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyForwardRightState.swift; sourceTree = "<group>"; };
 		E96673711A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyBackwardLeftState.swift; sourceTree = "<group>"; };
 		E96673771A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyBackwardRightState.swift; sourceTree = "<group>"; };
-		E96A3AC71A4A4A6D00531F26 /* DrivingBackwardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingBackwardStateTests.swift; sourceTree = "<group>"; };
-		E96A3AC91A4A4A9400531F26 /* ExceptationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExceptationMock.swift; sourceTree = "<group>"; };
-		E96A3ACB1A4A4C8D00531F26 /* DrivingForwardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingForwardStateTests.swift; sourceTree = "<group>"; };
-		E96A3ACD1A4A4D8100531F26 /* RotatingLeftStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLeftStateTests.swift; sourceTree = "<group>"; };
-		E96A3ACF1A4A4E8B00531F26 /* RotatingRightStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingRightStateTests.swift; sourceTree = "<group>"; };
-		E96A3AD11A4A4F4B00531F26 /* DrivingDiagonallyForwardLeftStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyForwardLeftStateTests.swift; sourceTree = "<group>"; };
 		E971B7CC1A5A109E00044658 /* NWObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NWObserver.swift; sourceTree = "<group>"; };
 		E98F6B4F1A427504007DE023 /* Romo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Romo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98F6B541A427504007DE023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,8 +121,6 @@
 		E98F6B5C1A427504007DE023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E98F6B5E1A427504007DE023 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E98F6B611A427504007DE023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E98F6B671A427504007DE023 /* DrivingVehicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrivingVehicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E98F6B6C1A427504007DE023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98F6BA11A42D846007DE023 /* VehicleStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleStateManager.swift; sourceTree = "<group>"; };
 		E98F6BA41A42D8B5007DE023 /* StopMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopMovingState.swift; sourceTree = "<group>"; };
 		E9B07B5F1A5B62D100B78E00 /* VideoViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewManager.swift; sourceTree = "<group>"; };
@@ -177,15 +128,9 @@
 		E9C044941A5A9DC800FD86F8 /* Romo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Romo-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E9C044961A5A9DD200FD86F8 /* Double-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Double-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E9C044981A5A9EE900FD86F8 /* DoubleDrive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleDrive.swift; sourceTree = "<group>"; };
-		E9DB8F2E1A4A50B600E93A94 /* DrivingDiagonallyForwardRightStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyForwardRightStateTests.swift; sourceTree = "<group>"; };
 		E9DD8BF81A5A90C4001638C3 /* HeadingUpState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingUpState.swift; sourceTree = "<group>"; };
 		E9DD8BFB1A5A90CD001638C3 /* HeadingDownState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingDownState.swift; sourceTree = "<group>"; };
 		E9DD8BFE1A5A9143001638C3 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		E9DD8C021A5A917C001638C3 /* StopHeadingStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopHeadingStateTests.swift; sourceTree = "<group>"; };
-		E9DD8C041A5A94E8001638C3 /* HeadingDownStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingDownStateTests.swift; sourceTree = "<group>"; };
-		E9DD8C061A5A9660001638C3 /* HeadingUpStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingUpStateTests.swift; sourceTree = "<group>"; };
-		E9E5A2DE1A4A529A0058DBD9 /* DrivingDiagonallyBackwardLeftStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyBackwardLeftStateTests.swift; sourceTree = "<group>"; };
-		E9E5A2E01A4A54640058DBD9 /* DrivingDiagonallyBackwardRightStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingDiagonallyBackwardRightStateTests.swift; sourceTree = "<group>"; };
 		E9E5A32E1A4A9B2B0058DBD9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E9E5A32F1A4A9B2B0058DBD9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E9E5A3301A4A9B2B0058DBD9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -204,6 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4CC7681B6F48A5004B8B6C /* VideoToolbox.framework in Frameworks */,
+				CA4CC7661B6F4889004B8B6C /* CoreVideo.framework in Frameworks */,
 				CAEE3B4D1B4A3ED5000385BE /* SystemConfiguration.framework in Frameworks */,
 				E9E5A3391A4A9B2B0058DBD9 /* AVFoundation.framework in Frameworks */,
 				E94307211A4C046600262E2A /* ExternalAccessory.framework in Frameworks */,
@@ -221,17 +168,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E98F6B641A427504007DE023 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E9C044781A5A9D4900FD86F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4CC8281B71E87C004B8B6C /* CoreVideo.framework in Frameworks */,
+				CA4CC8291B71E87C004B8B6C /* VideoToolbox.framework in Frameworks */,
 				CA67A4171B4DFB170013FD04 /* CoreMotion.framework in Frameworks */,
 				CA67A4161B4DFB0A0013FD04 /* SystemConfiguration.framework in Frameworks */,
 				E9C0449D1A5AA2C300FD86F8 /* ExternalAccessory.framework in Frameworks */,
@@ -276,6 +218,8 @@
 		E94307141A4C019A00262E2A /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA4CC7671B6F48A5004B8B6C /* VideoToolbox.framework */,
+				CA4CC7651B6F4889004B8B6C /* CoreVideo.framework */,
 				CAEE3B4C1B4A3ED5000385BE /* SystemConfiguration.framework */,
 				E943071F1A4C044100262E2A /* ExternalAccessory.framework */,
 				E943071D1A4C043A00262E2A /* CoreMotion.framework */,
@@ -298,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				E98F6B511A427504007DE023 /* DrivingVehicle */,
-				E98F6B6A1A427504007DE023 /* DrivingVehicleTests */,
 				E98F6B501A427504007DE023 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -307,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				E98F6B4F1A427504007DE023 /* Romo.app */,
-				E98F6B671A427504007DE023 /* DrivingVehicleTests.xctest */,
 				E9C044921A5A9D4900FD86F8 /* Double.app */,
 			);
 			name = Products;
@@ -337,24 +279,6 @@
 			children = (
 				E9C044961A5A9DD200FD86F8 /* Double-Info.plist */,
 				E9C044941A5A9DC800FD86F8 /* Romo-Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E98F6B6A1A427504007DE023 /* DrivingVehicleTests */ = {
-			isa = PBXGroup;
-			children = (
-				E96A3AC91A4A4A9400531F26 /* ExceptationMock.swift */,
-				E98F6B951A42D799007DE023 /* models */,
-				E98F6B6B1A427504007DE023 /* Supporting Files */,
-			);
-			path = DrivingVehicleTests;
-			sourceTree = "<group>";
-		};
-		E98F6B6B1A427504007DE023 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E98F6B6C1A427504007DE023 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -394,23 +318,6 @@
 			path = state;
 			sourceTree = "<group>";
 		};
-		E98F6B951A42D799007DE023 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				E98F6B961A42D799007DE023 /* states */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		E98F6B961A42D799007DE023 /* states */ = {
-			isa = PBXGroup;
-			children = (
-				E9DD8C011A5A9164001638C3 /* HeadingState */,
-				E98F6BA71A42DA51007DE023 /* DriveState */,
-			);
-			path = states;
-			sourceTree = "<group>";
-		};
 		E98F6B9A1A42D7C8007DE023 /* DriveState */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,32 +333,6 @@
 				E96673771A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift */,
 			);
 			path = DriveState;
-			sourceTree = "<group>";
-		};
-		E98F6BA71A42DA51007DE023 /* DriveState */ = {
-			isa = PBXGroup;
-			children = (
-				E9E5A2E01A4A54640058DBD9 /* DrivingDiagonallyBackwardRightStateTests.swift */,
-				E9E5A2DE1A4A529A0058DBD9 /* DrivingDiagonallyBackwardLeftStateTests.swift */,
-				E9DB8F2E1A4A50B600E93A94 /* DrivingDiagonallyForwardRightStateTests.swift */,
-				E96A3AD11A4A4F4B00531F26 /* DrivingDiagonallyForwardLeftStateTests.swift */,
-				E96A3ACF1A4A4E8B00531F26 /* RotatingRightStateTests.swift */,
-				E96A3ACD1A4A4D8100531F26 /* RotatingLeftStateTests.swift */,
-				E96A3ACB1A4A4C8D00531F26 /* DrivingForwardStateTests.swift */,
-				E96A3AC71A4A4A6D00531F26 /* DrivingBackwardStateTests.swift */,
-				E966735A1A43EDE600F7BC09 /* StopMovingStateTests.swift */,
-			);
-			path = DriveState;
-			sourceTree = "<group>";
-		};
-		E9DD8C011A5A9164001638C3 /* HeadingState */ = {
-			isa = PBXGroup;
-			children = (
-				E9DD8C021A5A917C001638C3 /* StopHeadingStateTests.swift */,
-				E9DD8C041A5A94E8001638C3 /* HeadingDownStateTests.swift */,
-				E9DD8C061A5A9660001638C3 /* HeadingUpStateTests.swift */,
-			);
-			path = HeadingState;
 			sourceTree = "<group>";
 		};
 		E9E5A2E21A4A58C60058DBD9 /* peer */ = {
@@ -483,25 +364,6 @@
 			productReference = E98F6B4F1A427504007DE023 /* Romo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E98F6B661A427504007DE023 /* DrivingVehicleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E98F6B741A427504007DE023 /* Build configuration list for PBXNativeTarget "DrivingVehicleTests" */;
-			buildPhases = (
-				E98F6B631A427504007DE023 /* Sources */,
-				E98F6B641A427504007DE023 /* Frameworks */,
-				E98F6B651A427504007DE023 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E98F6B691A427504007DE023 /* PBXTargetDependency */,
-				CA8C7FF91AAD857D00BFFB4F /* PBXTargetDependency */,
-			);
-			name = DrivingVehicleTests;
-			productName = DrivingVehicleTests;
-			productReference = E98F6B671A427504007DE023 /* DrivingVehicleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		E9C044601A5A9D4900FD86F8 /* Double */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9C0448F1A5A9D4900FD86F8 /* Build configuration list for PBXNativeTarget "Double" */;
@@ -525,15 +387,12 @@
 		E98F6B471A427504007DE023 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "NTT Communications";
 				TargetAttributes = {
 					E98F6B4E1A427504007DE023 = {
-						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = YP76R8KFZE;
-					};
-					E98F6B661A427504007DE023 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = YP76R8KFZE;
 					};
@@ -556,7 +415,6 @@
 			projectRoot = "";
 			targets = (
 				E98F6B4E1A427504007DE023 /* Romo */,
-				E98F6B661A427504007DE023 /* DrivingVehicleTests */,
 				E9C044601A5A9D4900FD86F8 /* Double */,
 			);
 		};
@@ -571,13 +429,6 @@
 				E98F6B621A427504007DE023 /* LaunchScreen.xib in Resources */,
 				E92C4B531A7F4197008E66E2 /* cannon.mp3 in Resources */,
 				E98F6B5F1A427504007DE023 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E98F6B651A427504007DE023 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,42 +475,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E98F6B631A427504007DE023 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E96A3AC81A4A4A6D00531F26 /* DrivingBackwardStateTests.swift in Sources */,
-				E96A3AD21A4A4F4B00531F26 /* DrivingDiagonallyForwardLeftStateTests.swift in Sources */,
-				E96A3ACC1A4A4C8D00531F26 /* DrivingForwardStateTests.swift in Sources */,
-				E96A3AD01A4A4E8B00531F26 /* RotatingRightStateTests.swift in Sources */,
-				E966736D1A43EFAD00F7BC09 /* DrivingDiagonallyForwardLeftState.swift in Sources */,
-				E96673671A43EF5800F7BC09 /* RotatingLeftState.swift in Sources */,
-				E96673791A43F03B00F7BC09 /* DrivingDiagonallyBackwardRightState.swift in Sources */,
-				E98F6BA31A42D846007DE023 /* VehicleStateManager.swift in Sources */,
-				E96673731A43F00200F7BC09 /* DrivingDiagonallyBackwardLeftState.swift in Sources */,
-				E96673701A43EFD500F7BC09 /* DrivingDiagonallyForwardRightState.swift in Sources */,
-				E9DB8F2F1A4A50B600E93A94 /* DrivingDiagonallyForwardRightStateTests.swift in Sources */,
-				E96673601A43EEAA00F7BC09 /* DrivingBackward.swift in Sources */,
-				E966736A1A43EF6100F7BC09 /* RotatingRightState.swift in Sources */,
-				E9E5A2E11A4A54640058DBD9 /* DrivingDiagonallyBackwardRightStateTests.swift in Sources */,
-				E90F02C11A5A80610070989E /* StopHeadingState.swift in Sources */,
-				E90F02C31A5A80610070989E /* VehicleHeadingManager.swift in Sources */,
-				E98F6BA61A42D8B5007DE023 /* StopMovingState.swift in Sources */,
-				E9DD8C031A5A917C001638C3 /* StopHeadingStateTests.swift in Sources */,
-				E971B7CE1A5A10A700044658 /* NWObserver.swift in Sources */,
-				E966735B1A43EDE600F7BC09 /* StopMovingStateTests.swift in Sources */,
-				E96673611A43EEB800F7BC09 /* DrivingForwardState.swift in Sources */,
-				E9E5A2DF1A4A529A0058DBD9 /* DrivingDiagonallyBackwardLeftStateTests.swift in Sources */,
-				E96A3ACE1A4A4D8100531F26 /* RotatingLeftStateTests.swift in Sources */,
-				E96A3ACA1A4A4A9400531F26 /* ExceptationMock.swift in Sources */,
-				E9DD8C071A5A9660001638C3 /* HeadingUpStateTests.swift in Sources */,
-				E9DD8C051A5A94E8001638C3 /* HeadingDownStateTests.swift in Sources */,
-				E9DD8BFD1A5A90CD001638C3 /* HeadingDownState.swift in Sources */,
-				E90F02D71A5A81C30070989E /* VehicleTemplate.swift in Sources */,
-				E9DD8BFA1A5A90C4001638C3 /* HeadingUpState.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E9C044611A5A9D4900FD86F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -690,19 +505,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CA8C7FF91AAD857D00BFFB4F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E9C044601A5A9D4900FD86F8 /* Double */;
-			targetProxy = CA8C7FF81AAD857D00BFFB4F /* PBXContainerItemProxy */;
-		};
-		E98F6B691A427504007DE023 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E98F6B4E1A427504007DE023 /* Romo */;
-			targetProxy = E98F6B681A427504007DE023 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E98F6B5B1A427504007DE023 /* Main.storyboard */ = {
@@ -813,13 +615,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
 				);
 				INFOPLIST_FILE = "Romo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "-DRomo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -837,55 +642,22 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
 				);
 				INFOPLIST_FILE = "Romo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "-DRomo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrivingVehicle/DrivingVehicle-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
-			};
-			name = Release;
-		};
-		E98F6B751A427504007DE023 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DrivingVehicleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Debug;
-		};
-		E98F6B761A427504007DE023 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DrivingVehicleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -896,6 +668,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
@@ -903,6 +676,7 @@
 				INFOPLIST_FILE = "Double-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "-DDouble";
 				PRODUCT_NAME = Double;
 				PROVISIONING_PROFILE = "";
@@ -920,6 +694,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivingVehicle/frameworks",
@@ -927,6 +702,7 @@
 				INFOPLIST_FILE = "Double-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "-DDouble";
 				PRODUCT_NAME = Double;
 				PROVISIONING_PROFILE = "";
@@ -953,15 +729,6 @@
 			buildConfigurations = (
 				E98F6B721A427504007DE023 /* Debug */,
 				E98F6B731A427504007DE023 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E98F6B741A427504007DE023 /* Build configuration list for PBXNativeTarget "DrivingVehicleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E98F6B751A427504007DE023 /* Debug */,
-				E98F6B761A427504007DE023 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

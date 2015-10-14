@@ -1,6 +1,6 @@
 body{
     margin:0px;
-    background-color: lightyellow;
+    background-color: lightgray;
 }
 #main{
     width:100%;
@@ -54,9 +54,9 @@ div#top{
     position: absolute;
     background-color: #000000;
     width:100%;
-    height:3%;
+    height:20px;
     left:0%;
-    top:0%;
+    top:-82vh;
     z-index: 1;
 }
 
@@ -84,6 +84,7 @@ div#top{
     position: absolute;
     width:70%;
     right: 0%;
+    top: -1vw;
     z-index: 1;
 }
 
@@ -91,13 +92,14 @@ div#top{
     position: absolute;
     width:70%;
     left: 0%;
+    top: -1vw;
     z-index: 1;
 }
 
 #handle{
     position: absolute;
-    width:31%;
-    left: 34.4%;
+    width:30%;
+    left: 35%;
     top:-5.5vw;
     z-index: 10;
     -moz-transition: -moz-transform 0.2s linear;
@@ -203,11 +205,19 @@ div#top{
     -ms-transition: -ms-transform 0.3s linear;
 }
 
+#gear{
+    position: absolute;
+    width: 10%;
+    left: 85%;
+    top: 2.5vw;
+    z-index: 3;
+}
+
 div#under{
     position: absolute;
     background-color: #000000;
     width:100%;
-    height:10vw;
+    height:100%;
     left:0%;
     bottom:0vw;
     z-index: 1;
@@ -222,23 +232,20 @@ div#under{
 }
 
 #control-window{
-    position: relative;
     width:100%;
     /*height:160px;*/
-    height: 100px;
-    margin-top: 20px;
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-#mute-btn{
-    top: 20px;
-    left: 110px;
-    position: absolute;
-    text-align: center;
-    font-size: 16px;
+.vehicle-control-btn{
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #photo-window{
-    position: relative;
     width:100%;
     min-height:200px;
     border: solid #000000 1px;
@@ -248,19 +255,10 @@ div#under{
     text-align: center;
 }
 
-#photo-btn{
-    background-color: #000000;
-    width:70%;
-    text-align: center;
-    margin:10px;
-}
-
 #photo-lib{
-    position: absolute;
     overflow: scroll;
-    background-color: lightgoldenrodyellow;
-    width:100%;
-    bottom: 1px;
+    background-color: darkgray;
+    width: 100%;
     padding-top: 10px;
 }
 #photo-lib img{

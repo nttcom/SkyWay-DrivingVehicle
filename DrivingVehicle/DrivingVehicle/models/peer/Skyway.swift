@@ -8,7 +8,7 @@ import Foundation
 class Skyway{
     // Enter your APIkey and Domain
     // Please check this page. >> https://skyway.io/ds/
-    private let kAPIkey:String = "yourAPIKEY"
+    private let kAPIkey:String = "yourAPIkey"
     private let kDomain:String = "yourDomain"
     
     var delegates = [NWObserver]()
@@ -28,48 +28,48 @@ class Skyway{
         let options: SKWPeerOption! = SKWPeerOption()
         options.key = kAPIkey
         options.domain = kDomain
-        options.turn = false
+        options.turn = true
         
         var encodedString = _peerId.stringByAddingPercentEncodingWithAllowedCharacters(
             NSCharacterSet.URLQueryAllowedCharacterSet())
         
         // We cannot use "%" for peerID, so change "%" to "__"
         // This is Sample. It's not recommended that you use this ID to identify peers
-        encodedString = encodedString!.stringByReplacingOccurrencesOfString("%", withString: "__", options: nil, range: nil)
+        encodedString = encodedString!.stringByReplacingOccurrencesOfString("%", withString: "__", options: [], range: nil)
         
         _skyway = SKWPeer(id: encodedString, options: options)
         _setCallbacks(_skyway)
+        SKWNavigator.initialize(_skyway)
         _setupVideo()
     }
 
     private func _setupVideo(){
         let constraints = SKWMediaConstraints()
         constraints.maxFrameRate = 10
-        constraints.maxWidth = 360
-        constraints.maxHeight = 640
-        constraints.cameraPosition = ._CAMERA_POSITION_FRONT
-        SKWNavigator.initialize(_skyway)
+        constraints.maxWidth = 720
+        constraints.maxHeight = 720
+        constraints.cameraPosition = .CAMERA_POSITION_FRONT
         _msLocal = SKWNavigator.getUserMedia(constraints)
     }
     
     // MARK: callbacks
     private func _setCallbacks(peer: SKWPeer?){
-        peer?.on(._PEER_EVENT_OPEN, callback: {obj in
+        peer?.on(.PEER_EVENT_OPEN, callback: {obj in
             if obj is NSString{
-                println("peer onopen")
+                print("peer onopen")
             }
         })
 
-        peer?.on(._PEER_EVENT_CONNECTION, callback: {obj in
-            println("peer connection")
+        peer?.on(.PEER_EVENT_CONNECTION, callback: {obj in
+            print("peer connection")
             if obj is SKWDataConnection{
                 self._dataConnection = obj as? SKWDataConnection
                 self._setDataCallbacks(self._dataConnection)
             }
         })
 
-        peer?.on(._PEER_EVENT_CALL, callback: {obj in
-            println("peer call")
+        peer?.on(.PEER_EVENT_CALL, callback: {obj in
+            print("peer call")
             if let connection = obj as? SKWMediaConnection{
                 self._mediaConnection = connection
                 self._setMediaCallbacks(self._mediaConnection)
@@ -77,23 +77,23 @@ class Skyway{
             }
         })
 
-        peer?.on(._PEER_EVENT_CLOSE, callback: {obj in
-            println("peer close")
+        peer?.on(.PEER_EVENT_CLOSE, callback: {obj in
+            print("peer close")
         })
 
-        peer?.on(._PEER_EVENT_DISCONNECTED, callback: {obj in
-            println("peer disconnected")
-            println(obj)
+        peer?.on(.PEER_EVENT_DISCONNECTED, callback: {obj in
+            print("peer disconnected")
+            print(obj)
         })
 
-        peer?.on(._PEER_EVENT_ERROR, callback: {obj in
-            println("peer error")
+        peer?.on(.PEER_EVENT_ERROR, callback: {obj in
+            print("peer error")
         })
     }
 
     private func _setMediaCallbacks(media: SKWMediaConnection?){
-        media?.on(._MEDIACONNECTION_EVENT_STREAM, callback: {obj in
-            println("media stream")
+        media?.on(.MEDIACONNECTION_EVENT_STREAM, callback: {obj in
+            print("media stream")
             if let stream = obj as? SKWMediaStream{
                 self.dispatch_async_global {
                     self.videoDisplayProtocol?.onRecvMedia(stream)
@@ -101,36 +101,36 @@ class Skyway{
             }
         })
         
-        media?.on(._MEDIACONNECTION_EVENT_CLOSE, callback: {obj in
-            println("media close")
+        media?.on(.MEDIACONNECTION_EVENT_CLOSE, callback: {obj in
+            print("media close")
 
-            media?.on(._MEDIACONNECTION_EVENT_STREAM, callback: nil)
-            media?.on(._MEDIACONNECTION_EVENT_CLOSE, callback: nil)
-            media?.on(._MEDIACONNECTION_EVENT_ERROR, callback: nil)
+            media?.on(.MEDIACONNECTION_EVENT_STREAM, callback: nil)
+            media?.on(.MEDIACONNECTION_EVENT_CLOSE, callback: nil)
+            media?.on(.MEDIACONNECTION_EVENT_ERROR, callback: nil)
 
             self.videoDisplayProtocol?.removeMedia()
         })
         
-        media?.on(._MEDIACONNECTION_EVENT_ERROR, callback: {obj in
-            println("media error")
+        media?.on(.MEDIACONNECTION_EVENT_ERROR, callback: {obj in
+            print("media error")
         })
     }
 
     private func _setDataCallbacks(data: SKWDataConnection?){
-        data?.on(._DATACONNECTION_EVENT_OPEN, callback: {obj in
-            println("data open")
+        data?.on(.DATACONNECTION_EVENT_OPEN, callback: {obj in
+            print("data open")
             self.videoDisplayProtocol?.setVideoOrientation(data?.label)
         })
         
-        data?.on(._DATACONNECTION_EVENT_DATA, callback: {obj in
+        data?.on(.DATACONNECTION_EVENT_DATA, callback: {obj in
             if let message = obj as? NSDictionary{
                 self._onMessage(message)
             }
         })
         
-        data?.on(._DATACONNECTION_EVENT_CLOSE, callback: {obj in
-            println("data close")
-            var dict: Dictionary = ["type":"Abort","flag":true]
+        data?.on(.DATACONNECTION_EVENT_CLOSE, callback: {obj in
+            print("data close")
+            let dict: Dictionary = ["type":"Abort","flag":true]
             for delegate: NWObserver in self.delegates {
                 self.dispatch_async_global{
                     delegate.onMessage(dict)
@@ -138,8 +138,8 @@ class Skyway{
             }
         })
         
-        data?.on(._DATACONNECTION_EVENT_ERROR, callback: {obj in
-            println("data error")
+        data?.on(.DATACONNECTION_EVENT_ERROR, callback: {obj in
+            print("data error")
         })
     }
 
@@ -159,8 +159,34 @@ class Skyway{
     }
 
     internal func send(message: Dictionary<String, AnyObject>){
-        var data = message as NSDictionary
+        let data = message as NSDictionary
+        print(data, terminator: "")
         self._dataConnection?.send(data)
+    }
+    
+    internal func switchCamera(){
+        let pos: SKWCameraPositionEnum = _msLocal!.getCameraPosition()
+        if(pos == .CAMERA_POSITION_FRONT){
+            _msLocal?.setCameraPosition(.CAMERA_POSITION_BACK)
+        }else if(pos == .CAMERA_POSITION_BACK){
+            _msLocal?.setCameraPosition(.CAMERA_POSITION_FRONT)
+        }
+        sendCameraPosition()
+    }
+    
+    internal func sendCameraPosition(){
+        var send_dict: Dictionary = [
+            "CameraPosition": "",
+        ]
+        
+        let pos: SKWCameraPositionEnum = _msLocal!.getCameraPosition()
+        if(pos == .CAMERA_POSITION_FRONT){
+            send_dict["CameraPosition"] = "front"
+        }else if(pos == .CAMERA_POSITION_BACK){
+            send_dict["CameraPosition"] = "back"
+        }
+        
+        send(send_dict)
     }
 
 }

@@ -20,17 +20,19 @@ enum TurnStatus: Int {
 }
 
 class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
-    private var _movingStatus: DRDriveDirection!
-    private var _turnStatus: TurnStatus!
     private var _socket: Skyway!
+    private var _parkingStatus:Int32!
+    private var _speed: Float!
+    private var _radius: Float!
     
     init(socket: Skyway){
         super.init()
-    
         _socket = socket
-        _movingStatus = .Stop
-        _turnStatus = .STOP
+        _speed = 0.0
+        _radius = 0.0
         DRDouble.sharedDouble().delegate = self
+        _parkingStatus = DRDouble.sharedDouble().kickstandState
+    
     }
     
     // MARK: DRDoubleDelegate
@@ -42,72 +44,111 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
         
     }
     
-    func doubleStatusDidUpdate(theDouble: DRDouble!) {    }
+    func doubleStatusDidUpdate(theDouble: DRDouble!) {
+        if(_parkingStatus != DRDouble.sharedDouble().kickstandState){
+            getvehiclestatus()
+            _parkingStatus = DRDouble.sharedDouble().kickstandState
+        }
+    }
     
     func doubleDriveShouldUpdate(theDouble: DRDouble!) {
-        theDouble.drive(_movingStatus, turn: _turnStatus.floatValue)
+        theDouble.variableDrive(_speed, turn: _radius)
     }
     
     func doubleTravelDataDidUpdate(theDouble: DRDouble!) {    }
     
     // MARK: VehicleTemplate
-    override func driveForward(){
-        _movingStatus = .Forward
-        _turnStatus = .STOP
+    override func driveForward(speed:NSNumber?){
+        if(speed != nil){
+         _speed = speed!.floatValue
+        }
+        _radius = 0.0
     }
     
-    override func driveBackward(){
-        _movingStatus = .Backward
-        _turnStatus = .STOP
+    override func driveBackward(speed:NSNumber?){
+        if(speed != nil){
+            _speed = -1.0 * speed!.floatValue
+        }
+            _radius = 0.0
     }
     
-    override func rotateLeft(){
-        _movingStatus = .Stop
-        _turnStatus = .TURN_LEFT
+    override func rotateLeft(radius:NSNumber?){
+        _speed = 0.0
+        if(radius != nil){
+            _radius = -1.0 * radius!.floatValue
+        }
     }
     
-    override func rotateRight(){
-        _movingStatus = .Stop
-        _turnStatus = .TURN_RIGHT
+    override func rotateRight(radius:NSNumber?){
+        _speed = 0.0
+        if(radius != nil){
+            _radius = radius!.floatValue
+        }
     }
     
-    override func driveDiagonallyForwardLeft(){
-        _movingStatus = .Forward
-        _turnStatus = .TURN_LEFT
+    override func driveDiagonallyForwardLeft(speed:NSNumber?,radius:NSNumber?){
+        if(speed != nil){
+            _speed = speed!.floatValue
+        }
+        if(radius != nil){
+            _radius = -1.0 * radius!.floatValue
+        }
     }
     
-    override func driveDiagonallyForwardRight(){
-        _movingStatus = .Forward
-        _turnStatus = .TURN_RIGHT
+    override func driveDiagonallyForwardRight(speed:NSNumber?,radius:NSNumber?){
+        if(speed != nil){
+            _speed = speed!.floatValue
+        }
+        if(radius != nil){
+            _radius = radius!.floatValue
+        }
     }
     
-    override func driveDiagonallyBackwardLeft(){
-        _movingStatus = .Backward
-        _turnStatus = .TURN_RIGHT
+    override func driveDiagonallyBackwardLeft(speed:NSNumber?,radius:NSNumber?){
+        if(speed != nil){
+            _speed = -1.0 * speed!.floatValue
+        }
+        if(radius != nil){
+            _radius = -1.0 * radius!.floatValue
+        }
     }
     
-    override func driveDiagonallyBackwardRight(){
-        _movingStatus = .Backward
-        _turnStatus = .TURN_LEFT
+    override func driveDiagonallyBackwardRight(speed:NSNumber?,radius:NSNumber?){
+        if(speed != nil){
+            _speed = -1.0 * speed!.floatValue
+        }
+        if(radius != nil){
+            _radius = radius!.floatValue
+        }
     }
     
     override func stopDriving(){
-        _movingStatus = .Stop
-        _turnStatus = .STOP
+        _speed = 0.0
+        _radius = 0.0
     }
     
     override func headingUp(){
         DRDouble.sharedDouble().poleUp()
     }
     
-    override func headingDonw(){
+    override func headingDown(){
         DRDouble.sharedDouble().poleDown()
     }
     override func stopHeading(){
         DRDouble.sharedDouble().poleStop()
+        self.sendanglestate()
     }
     
-    override func button6(){
+    private func sendanglestate(){
+        let angle = DRDouble.sharedDouble().poleHeightPercent
+        let send_dict: Dictionary = [
+            "AngleState": Double(angle),
+        ]
+        _socket?.send(send_dict)
+        
+    }
+    
+    override func button1(){
         if(DRDouble.sharedDouble().kickstandState == 1){
             DRDouble.sharedDouble().retractKickstands()
         } else {
@@ -115,17 +156,25 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
         }
     }
     
-    override func battery() {
+    override func getvehiclestatus(){
         let currentDevice: UIDevice! = UIDevice.currentDevice()
-        
         if (currentDevice !== nil) {
-            var double_battery: Float = DRDouble.sharedDouble().batteryPercent
+            let angle = DRDouble.sharedDouble().poleHeightPercent
+            let double_battery: Float = DRDouble.sharedDouble().batteryPercent
             currentDevice.batteryMonitoringEnabled = true
-            var ios_battery: Float = currentDevice.batteryLevel
-            
-            var send_dict: Dictionary = [
+            let ios_battery: Float = currentDevice.batteryLevel
+                
+            var parking_state: String = ""
+            if(DRDouble.sharedDouble().kickstandState == 1){
+                parking_state = "parking"
+            }  else if(DRDouble.sharedDouble().kickstandState == 2){
+                parking_state = "driving"
+            }
+            let send_dict: Dictionary = [
+                "AngleState": Double(angle),
                 "VehicleBattery": Double(double_battery),
-                "IOSBattery": Double(ios_battery)
+                "IOSBattery": Double(ios_battery),
+                "ParkingState": NSString(string: parking_state)
             ]
             _socket?.send(send_dict)
         }

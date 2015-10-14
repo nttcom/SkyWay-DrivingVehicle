@@ -139,39 +139,45 @@ module Vehicle{
             switch (buttonId){
                 case 12://↑
                     type = InputType.Front;
+                    value = 1.0;
                     break;
                 case 13://↓
                     type = InputType.Back;
+                    value = 1.0;
                     break;
                 case 14://←
                     type = InputType.Left;
+                    value = 0.5;
                     break;
                 case 15://→
                     type = InputType.Right;
+                    value = 0.5;
                     break;
                 case 0://×
                     type = InputType.HeadDown;
                     break;
                 case 1://○
-                    type = InputType.Button1;
+                    type = InputType.Wiper;
                     break;
                 case 2://□
-                    type = InputType.Button2;
+                    type = InputType.SwitchCamera;
                     break;
                 case 3://△
                     type = InputType.HeadUp;
                     break;
                 case 4://L1
-                    type = InputType.Button3;
+                    type = InputType.GearDown;
                     break;
                 case 5://R1
-                    type = InputType.Button4;
+                    type = InputType.GearUp;
                     break;
                 case 6://L2
-                    type = InputType.Button5;
+                    type = InputType.Back;
+                    value = 1.0;
                     break;
                 case 7://R2
-                    type = InputType.Button6;
+                    type = InputType.Front;
+                    value = 1.0;
                     break;
                 default:
                     type = InputType.Misc;
@@ -183,44 +189,48 @@ module Vehicle{
         }
 
         private _judgeAxe(axe: number){
-            if(axe > 0.5) return 1;
-            else if(axe < -0.5) return -1;
-            return 0;
+            axe = parseInt((axe * 5).toString()) / 5;
+            return axe;
         }
 
         private _createUserInputsAxe(axeId: number, current: number, previous: number): UserInputs{
             var type: InputType;
-            var flag : boolean;
+            var flag: boolean = false;
+            var value: number = 0;
             switch (axeId){
                 case 0://x axis
-                    if(current === -1){
+                    if(current < 0){
                         flag = true;
                         type = InputType.Left;
-                    }else if(current === 1){
+                        value = -1 * current;
+                    }else if(current > 0){
                         flag = true;
                         type = InputType.Right;
+                        value = current;
                     }else{
-                        if(previous === -1){
+                        if(previous < 0){
                             flag = false;
                             type = InputType.Left;
-                        }else if(previous === 1){
+                        }else if(previous > 0){
                             flag = false;
                             type = InputType.Right;
                         }
                     }
                     break;
                 case 1://y axis
-                    if(current === 1){
+                    if(current > 0){
                         flag = true;
                         type = InputType.Back;
-                    }else if(current === -1){
+                        value = current;
+                    }else if(current < 0){
                         flag = true;
                         type = InputType.Front;
+                        value = -1 * current;
                     }else{
-                        if(previous === 1){
+                        if(previous > 0){
                             flag = false;
                             type = InputType.Back;
-                        }else if(previous === -1){
+                        }else if(previous < 0){
                             flag = false;
                             type = InputType.Front;
                         }
@@ -230,7 +240,7 @@ module Vehicle{
                     type = InputType.Misc;
             }
 
-            return {type: type, flag: flag};
+            return {type: type, flag: flag, value: value};
         }
     }
 }

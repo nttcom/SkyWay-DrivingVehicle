@@ -22,15 +22,13 @@ class StopHeadingState: HeadingStateProtocol {
         case .Down:
             if(options.doStart){
                 manager.setState(HeadingDownState())
-                vehicle.headingDonw()
+                vehicle.headingDown()
             }
         case .Up:
             if(options.doStart){
                 manager.setState(HeadingUpState())
                 vehicle.headingUp()
             }
-        default:
-            return
         }
     }
 }

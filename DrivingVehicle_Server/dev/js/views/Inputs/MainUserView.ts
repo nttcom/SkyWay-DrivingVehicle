@@ -1,64 +1,185 @@
 /// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="./UserInputs.ts" />
+/// <reference path="../../views/Inputs/VehicleMessage.ts" />
 
 module Vehicle {
+
+    enum Msg{
+        Romo,
+        SwitchCamera,
+        Mic,
+        Shot,
+        Button1
+    }
+
     export class MainUserView extends EventEmitter2 {
 
         private _imgArray:JQuery[] = [];
-        private _isRomo:boolean = true;
+        private _isDouble:boolean = true;
 
-        constructor() {
+        constructor(isDouble: boolean) {
             super();
 
-            $("#photo-btn").click((evt:JQueryEventObject)=>{
+            this._isDouble=isDouble;
+            //If the Robot is Double, hide Romo's icon
+            if(isDouble){
+                $("#Romo").hide();
+                $("#Button1").show();
+                $("#HeadingtoAngle").attr("disabled","disabled")
+            }
+
+            $("#dashboard-controller button").click((evt:JQueryEventObject)=>{
                 $(evt.target).blur();
-                this.takePhoto();
-            });
-
-            $("#mute-btn").click((evt:JQueryEventObject)=>{
                 var name = $(evt.target).attr('name');
-
-                if(name === "OFF") {
-                    $(evt.target).attr('name','ON').html('<i class="fa fa-microphone"></i>  Microfone ON');
-                    (<any>window).localStream.getAudioTracks()[0].enabled = true
+                if(name == "simple"){
+                    $("#car-images").show();
+                    $(evt.target)
+                        .attr('name','dashboard')
+                        .removeClass('btn-default')
+                        .addClass('btn-info')
+                        .html('mode: dashboard');
                 }else{
-                    $(evt.target).attr('name','OFF').html('<i class="fa fa-microphone-slash"></i>  Microfone OFF');
-                    (<any>window).localStream.getAudioTracks()[0].enabled = false
+                    $("#car-images").hide();
+                    $(evt.target)
+                        .attr('name','simple')
+                        .removeClass('btn-info')
+                        .addClass('btn-default')
+                        .html('mode: simple');
                 }
+
             });
 
-            //change the Romo icon and face
-            $(".romo-control-btn").click((evt:JQueryEventObject)=>{
+            $("#Shot").click((evt:JQueryEventObject)=>{
+                $(evt.target).blur();
+                this._takePhoto();
+            });
+
+            $(".vehicle-control-btn").click((evt:JQueryEventObject)=>{
                 $(evt.target).blur();
                 var msg:string = $(evt.target).attr('id');
+                var name = $(evt.target).attr('name');
 
-                if(msg === "Romo"){
-                    if($("#Romo").attr("name")==="Camera"){
-                        $("#Romo").attr("name","Romo").attr("src","./img/romo-icon.png");
-                        $("#romo-view").show();
-                        $("#local-video").hide();
-                        this.emit("message", {type:msg, flag:true});
-                    }else{
-                        $("#Romo").attr("name","Camera").attr("src","./img/camera-icon.png");
-                        $("#romo-view").hide();
-                        $("#local-video").show();
-                        this.emit("message", {type:msg, flag:false});
-                    }
+                switch (msg){
+                    case "Romo":
+                        var type = InputType.Romo;
+                        if(name === "Camera"){
+                            $("#Romo").attr("name","Romo").attr("src","./img/romo-icon.png");
+                            $("#romo-view").show();
+                            $("#local-video").hide();
+                            this.emit("message", {type:type, flag:true});
+                        }else{
+                            $("#Romo").attr("name","Camera").attr("src","./img/camera-icon.png");
+                            $("#romo-view").hide();
+                            $("#local-video").show();
+                            this.emit("message", {type:type, flag:false});
+                        }
+                        break;
+
+                    case "SwitchCamera":
+                        var type = InputType.SwitchCamera;
+                        this.emit("message", {type:type, flag:true});
+                        break;
+
+                    case "Button1":
+                        var type = InputType.Button1;
+                        this.emit("message", {type:type, flag:true});
+                        this._loadParking();
+                        break;
+
+                    case "Mic":
+                        if(name === "ON"){
+                            $("#Mic").attr("name","OFF").attr("src","./img/mic-off.png");
+                            (<any>window).localStream.getAudioTracks()[0].enabled = false
+                        }else{
+                            $("#Mic").attr("name","ON").attr("src","./img/mic-on.png");
+                            (<any>window).localStream.getAudioTracks()[0].enabled = true
+                        }
+                        break;
+
+                    default:
+                        break;
 
                 }
+
             });
 
-            //If the Robot is Double, hide Romo's icon
-            var temp_params = window.location.search.substring(1).split('&');
-            for(var i = 0; i < temp_params.length; i++) {
-                var params = temp_params[i].split('=');
-                if (params[1].indexOf('Double') === 0) {
-                    this._isRomo = false;
-                    $("#Romo").hide();
-                }
-            }
+            $(".head-btn")
+                .mousedown((evt:JQueryEventObject)=>{
+                    $(evt.target).blur();
+                    var msg:string = $(evt.target).attr('id');
+                    this.emit("message", {type:msg, flag:true});
+                })
+                .mouseout((evt:JQueryEventObject)=>{
+                    $(evt.target).blur();
+                    var msg:string = $(evt.target).attr('id');
+                    this.emit("message", {type:msg, flag:false});
+                 })
+                .mouseup((evt:JQueryEventObject)=>{
+                    $(evt.target).blur();
+                    var msg:string = $(evt.target).attr('id');
+                    this.emit("message", {type:msg, flag:false});
+                });
+
+            $("#HeadingtoAngle").on('input',(evt:JQueryEventObject)=>{
+                $(evt.target).blur();
+                var msg = InputType.HeadingtoAngle;
+                var value:number = Number($(evt.target).val());
+                this.emit("message", {type:msg, flag:true, value:value});
+            });
+
         }
 
-        public takePhoto(){
+        public onData = (data)=>{
+            if(data.hasOwnProperty(MessageType.CameraPosition)){
+                this._cameraPositionChanged(data[MessageType.CameraPosition])
+            }
+            if(data.hasOwnProperty(MessageType.ParkingState)){
+                this._parkingStateChanged(data[MessageType.ParkingState])
+            }
+            if(data.hasOwnProperty(MessageType.AngleState)){
+                this._angleStateChanged(data[MessageType.AngleState])
+            }
+        };
+
+        public getMsgList=():string[]=>{
+            var list: string[] = [];
+            for(var n in Msg) {
+                if(typeof Msg[n] === 'number') list.push(n);
+            }
+            return list;
+        };
+
+        public onInput=(inputs:UserInputs)=>{
+            if(inputs.flag){
+                $("#" + String(inputs.type)).trigger("click");
+            }
+        };
+
+        private _cameraPositionChanged = (pos: string)=> {
+            if(pos == "back"){
+                $("#SwitchCamera").attr("name","Back").attr("src","./img/back-camera.png");
+            }else{
+                $("#SwitchCamera").attr("name","Front").attr("src","./img/front-camera.png");
+            }
+        };
+
+        private _loadParking = ()=> {
+            $("#Button1").attr("src","./img/park-loading.gif");
+        };
+
+        private _parkingStateChanged = (pos: string)=> {
+            if(pos == "driving"){
+                $("#Button1").attr("name","Driving").attr("src","./img/driving.png");
+            }else if(pos == "parking"){
+                $("#Button1").attr("name","Parking").attr("src","./img/parking.png");
+            }
+        };
+
+        private _angleStateChanged = (pos: string)=> {
+            $("#HeadingtoAngle").val(pos)
+        };
+
+        private _takePhoto(){
             var $img = this._copyFrame();
             this._imgArray.push($img);
 
@@ -85,15 +206,13 @@ module Vehicle {
             var vEle = <HTMLVideoElement> document.getElementById('remote-video');
             var exp = $vEle.width()/vEle.videoWidth;
 
-            //If the Robot is Double, rotate 180deg
-            if(!this._isRomo) {
-                cCtx.translate(cEle.width * 0.5, cEle.height * 0.5);
-                cCtx.rotate(180 * Math.PI / 180);
-                cCtx.translate(-cEle.width * 0.5, -cEle.height * 0.5);
+            if(this._isDouble && $("#SwitchCamera").attr("name") === "Back"){
+                cCtx.scale(-exp,exp);
+                cCtx.drawImage($vEle[0], -vEle.videoWidth, 0);
+            }else{
+                cCtx.scale(exp,exp);
+                cCtx.drawImage($vEle[0], 0, 0);
             }
-
-            cCtx.scale(exp,exp);
-            cCtx.drawImage($vEle[0], 0, 0);
 
             var img = new Image(cEle.width,cEle.height);
             img.src=cEle.toDataURL('image/png');

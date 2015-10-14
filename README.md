@@ -14,6 +14,9 @@ The server for the web app that connects to the DrivingVehicle application using
  1. Register an account on [SkyWay](http://nttcom.github.io/skyway/) and get an API key
  1. Clone or download this repository.
  1. Build and Run according to README of each applications
+ 
+### NOTICE
+This application requires v0.2.0+ of SkyWay iOS SDK.
 
 ---
 
@@ -31,6 +34,9 @@ DrivingVehicleアプリにWebRTCで接続し、コントロールを行うペー
  1. [SkyWay](http://nttcom.github.io/skyway/)でアカウントを作成し、APIkeyを取得
  1. このレポジトリをクローンまたはダウンロード
  1. 各アプリごとのREADMEに沿ってビルド/実行
+ 
+### 注意事項
+本アプリケーションはSkyWay iOS SDKのv0.2.0以降で動作します。
 
 ```
 +-------------------------+           WebRTC              +--------------------+

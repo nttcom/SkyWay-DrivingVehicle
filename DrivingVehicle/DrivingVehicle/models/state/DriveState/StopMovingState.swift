@@ -17,37 +17,33 @@ class StopMovingState: VehicleStateProtocol {
         return
     }
     
-    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions){
+    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions, value: NSNumber){
         switch options.direction{
         case .Front:
             if(options.doStart){
                 manager.setState(DrivingForwardState())
-                vehicle.driveForward()
+                vehicle.driveForward(value)
             }
         case .Back:
             if(options.doStart){
                 manager.setState(DrivingBackwardState())
-                vehicle.driveBackward()
+                vehicle.driveBackward(value)
             }
-        default:
-            return
         }
     }
     
-    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions){
+    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions, value: NSNumber){
         switch options.direction{
         case .Left:
             if(options.doStart){
                 manager.setState(RotatingLeftState())
-                vehicle.rotateLeft()
+                vehicle.rotateLeft(value)
             }
         case .Right:
             if(options.doStart){
                 manager.setState(RotatingRightState())
-                vehicle.rotateRight()
+                vehicle.rotateRight(value)
             }
-        default:
-            return
         }
     }
 }

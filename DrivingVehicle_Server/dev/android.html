@@ -15,8 +15,10 @@
     <script type="text/javascript" src="bower_components/lodash/lodash.compat.js"></script>
     <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/views/Inputs/UserInputs.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/views/Inputs/VehicleMessage.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/Gamepad.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/Keyboard.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/views/Inputs/RaceDashboard.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/AndroidUserView.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/models/PeerManager.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/controllers/AndroidMainController.js" charset="UTF-8"></script>
@@ -30,9 +32,16 @@
 <body oncontextmenu='return false;' oncopy='return false;'>
 <div id="race-window">
     <div id="top">
-        <img src="./img/gallery.png" id="Gallery" class="top-icon" />
-        <img src="./img/camera.png" id="Camera" class="top-icon" />
-        <img src="./img/camera-icon.png" id="Romo" class="romo-control-btn top-icon" name="Camera" />
+        <div id="top-left">
+            <img src="./img/gallery.png" id="Gallery" class="top-icon" />
+            <img src="./img/camera.png" id="Shot" class="top-icon" />
+        </div>
+        <div id="top-right">
+            <img src="./img/front-camera-android.png" id="SwitchCamera" class="vehicle-control-btn top-icon" name="Front" />
+            <img src="./img/mic-on-android.png" id="Mic" class="vehicle-control-btn top-icon" name="ON" />
+            <img src="./img/parking.png" id="Button1" class="vehicle-control-btn top-icon" name="Parking" style="display: none" />
+            <img src="./img/camera-icon.png" id="Romo" class="vehicle-control-btn top-icon" name="Camera" />
+        </div>
     </div>
     <video id="remote-video" autoplay></video>
     <div id="controller">
@@ -54,14 +63,6 @@
 <script type="text/javascript">
 
     window.onload = function(){
-        if(!judgeRomo()){
-            $("#remote-video").css({
-                "-webkit-transform": 'rotate(180deg)',
-                "-moz-transform": 'rotate(180deg)',
-                "-o-transform": 'rotate(180deg)',
-                "-ms-transform": 'rotate(180deg)'
-            });
-        }
         $("#local-video").on("playing",function(){
             local_video_reflow();
         });
@@ -76,17 +77,6 @@
         $local.css("left",trim_x);
     }
 
-    function judgeRomo(){
-        var isRomo = true;
-        var temp_params = window.location.search.substring(1).split('&');
-        for(var i = 0; i < temp_params.length; i++) {
-            var params = temp_params[i].split('=');
-            if (params[1].indexOf('Double') === 0) {
-                isRomo = false;
-            }
-        }
-        return isRomo;
-    }
 
 
 </script>

@@ -36,10 +36,9 @@ module Vehicle {
                 _.each(items, (element, index, array)=>{
                     tag += "<table class='peer-list'><tr><th>"+ this._peerURLDecode(element) +"</th>";
                     var allLink = '<td class="PConly"><a href="/all.html?peerId=' + element + '"><button class="btn btn-success btn-lg">ALL <i class="fa fa-laptop"></i></button></a></td>';
-                    var muteLink = '<td class="PConly"><a href="/mute.html?peerId=' + element + '"><button class="btn btn-info btn-lg">ALL (mute) <i class="fa fa-microphone-slash"></i></button></a></td>';
                     var raceLink = '<td class="PConly"><a href="/race.html?peerId=' + element + '"><button class="btn btn-warning btn-lg">Race <i class="fa fa-car"></i></button></a></td>';
                     var androidLink = '<td><a href="/android.html?peerId=' + element + '"><button class="btn btn-danger btn-lg">Android <i class="fa fa-mobile"></i></button></a></td>';
-                    tag += allLink + muteLink + androidLink + raceLink + "</tr></table>";
+                    tag += allLink + androidLink + raceLink + "</tr></table>";
                 });
 
                 //if not find any device

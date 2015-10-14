@@ -39,8 +39,6 @@ enum VehicleStatus{
             return "RotatingLeft"
         case RotatingRight:
             return "RotatingRight"
-        default:
-            return "error"
         }
     }
 }
@@ -58,8 +56,8 @@ struct RotationStateOptions {
 protocol VehicleStateProtocol{
     func status() -> VehicleStatus
     func abort(manager: VechicleStateManager, vehicle: VehicleTemplate) -> Void
-    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions) -> Void
-    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions) -> Void
+    func moveStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: MovingStateOptions, value: NSNumber) -> Void
+    func roteteStateChanged(manager: VechicleStateManager, vehicle: VehicleTemplate, options: RotationStateOptions, value: NSNumber) -> Void
 }
 
 class VechicleStateManager{

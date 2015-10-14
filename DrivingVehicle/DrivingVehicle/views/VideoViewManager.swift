@@ -14,8 +14,6 @@ enum ViewTag{
             return 1001
         case TAG_LOCAL_VIDEO:
             return 1002
-        default:
-            return -1
         }
     }
 }
@@ -26,7 +24,7 @@ protocol VideoDisplayProtocol{
     func removeMedia()
 }
 
-@objc class VideoViewManager: VideoDisplayProtocol{
+class VideoViewManager: VideoDisplayProtocol{
     private let _videoView: SKWVideo!
     private var _msRemote: SKWMediaStream?
     private let _parentView: UIView!

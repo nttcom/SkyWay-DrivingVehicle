@@ -14,6 +14,7 @@
     <script type="text/javascript" src="bower_components/lodash/lodash.compat.js"></script>
     <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/views/Inputs/UserInputs.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/views/Inputs/VehicleMessage.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/Gamepad.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/Keyboard.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/views/Inputs/RaceDashboard.js" charset="UTF-8"></script>
@@ -26,45 +27,52 @@
 </head>
 
 <body>
-<div id="top"></div>
-<video id="remote-video" autoplay></video>
-<video id="local-video" muted="true" autoplay style="display: none"></video>
-<div id="car-images">
-    <img id="wiper-left" class="wiper" src="img/wiper.png">
-    <img id="wiper-right" class="wiper" src="img/wiper.png">
-    <img id="handle" class="StopMoving" src="./img/handle.png">
-    <img id="dashboard" src="./img/dashboard.png">
-    <img id="string" class="StopMoving" src="./img/string.png">
-    <img id="ios-string" src="./img/mini-string.png">
-    <img id="vehicle-string" src="./img/mini-string.png">
+<div id="race-window">
+    <video id="remote-video" autoplay></video>
+    <video id="local-video" muted="true" autoplay style="display: none"></video>
+    <div id="car-images">
+        <div id="top"></div>
+        <img id="wiper-left" class="wiper" src="img/wiper.png">
+        <img id="wiper-right" class="wiper" src="img/wiper.png">
+        <img id="handle" class="StopMoving" src="./img/handle.png">
+        <img id="dashboard" src="./img/dashboard.png">
+        <img id="string" class="StopMoving" src="./img/string.png">
+        <img id="ios-string" src="./img/mini-string.png">
+        <img id="vehicle-string" src="./img/mini-string.png">
+        <img id="gear" src="./img/gear-0.png">
+        <div id="under"></div>
+    </div>
 </div>
 
 <script type="text/javascript">
 
     window.onload = function(){
-        if(!judgeRomo()){
-            $("#remote-video").css({
-                "-webkit-transform": 'rotate(180deg)',
-                "-moz-transform": 'rotate(180deg)',
-                "-o-transform": 'rotate(180deg)',
-                "-ms-transform": 'rotate(180deg)'
-            });
-        }
+        main_window_change_position();
 
-        var controller_video = new Vehicle.RaceMainController("mute",$("#local-video"),$("#remote-video"));
+        var controller_video = new Vehicle.RaceMainController("video",$("#local-video"),$("#remote-video"));
     };
 
-    function judgeRomo(){
-        var isRomo = true;
-        var temp_params = window.location.search.substring(1).split('&');
-        for(var i = 0; i < temp_params.length; i++) {
-            var params = temp_params[i].split('=');
-            if (params[1].indexOf('Double') === 0) {
-                isRomo = false;
-            }
+    var window_resize_timer = false;
+    $(window).resize(function() {
+        if (window_resize_timer !== false) {
+            clearTimeout(window_resize_timer);
         }
-        return isRomo;
+        window_resize_timer = setTimeout(function() {
+            main_window_change_position();
+        }, 100);
+    });
+
+    function main_window_change_position(){
+        var win_width=$(window).width();
+        var win_height=$(window).height();
+
+        var remote_video_height = win_width*4/3;
+        var remote_video_top = win_height - remote_video_height - win_height*0.18;
+        $("#remote-video").css({
+            "top": remote_video_top
+        });
     }
+
 
 </script>
 

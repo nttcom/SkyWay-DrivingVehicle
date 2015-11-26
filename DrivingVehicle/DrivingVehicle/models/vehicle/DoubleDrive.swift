@@ -28,8 +28,8 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
     init(socket: Skyway){
         super.init()
         _socket = socket
-        _speed = 0.0
-        _radius = 0.0
+        self._speed = 0.0
+        self._radius = 0.0
         DRDouble.sharedDouble().delegate = self
         _parkingStatus = DRDouble.sharedDouble().kickstandState
     
@@ -52,7 +52,7 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
     }
     
     func doubleDriveShouldUpdate(theDouble: DRDouble!) {
-        theDouble.variableDrive(_speed, turn: _radius)
+        theDouble.variableDrive(self._speed, turn: self._radius)
     }
     
     func doubleTravelDataDidUpdate(theDouble: DRDouble!) {    }
@@ -60,71 +60,71 @@ class DoubleDrive: VehicleTemplate, DRDoubleDelegate{
     // MARK: VehicleTemplate
     override func driveForward(speed:NSNumber?){
         if(speed != nil){
-         _speed = speed!.floatValue
+         self._speed = speed!.floatValue
         }
-        _radius = 0.0
+        self._radius = 0.0
     }
     
     override func driveBackward(speed:NSNumber?){
         if(speed != nil){
-            _speed = -1.0 * speed!.floatValue
+            self._speed = -1.0 * speed!.floatValue
         }
-            _radius = 0.0
+            self._radius = 0.0
     }
     
     override func rotateLeft(radius:NSNumber?){
-        _speed = 0.0
+        self._speed = 0.0
         if(radius != nil){
-            _radius = -1.0 * radius!.floatValue
+            self._radius = -1.0 * radius!.floatValue
         }
     }
     
     override func rotateRight(radius:NSNumber?){
-        _speed = 0.0
+        self._speed = 0.0
         if(radius != nil){
-            _radius = radius!.floatValue
+            self._radius = radius!.floatValue
         }
     }
     
     override func driveDiagonallyForwardLeft(speed:NSNumber?,radius:NSNumber?){
         if(speed != nil){
-            _speed = speed!.floatValue
+            self._speed = speed!.floatValue
         }
         if(radius != nil){
-            _radius = -1.0 * radius!.floatValue
+            self._radius = -1.0 * radius!.floatValue
         }
     }
     
     override func driveDiagonallyForwardRight(speed:NSNumber?,radius:NSNumber?){
         if(speed != nil){
-            _speed = speed!.floatValue
+            self._speed = speed!.floatValue
         }
         if(radius != nil){
-            _radius = radius!.floatValue
+            self._radius = radius!.floatValue
         }
     }
     
     override func driveDiagonallyBackwardLeft(speed:NSNumber?,radius:NSNumber?){
         if(speed != nil){
-            _speed = -1.0 * speed!.floatValue
+            self._speed = -1.0 * speed!.floatValue
         }
         if(radius != nil){
-            _radius = -1.0 * radius!.floatValue
+            self._radius = -1.0 * radius!.floatValue
         }
     }
     
     override func driveDiagonallyBackwardRight(speed:NSNumber?,radius:NSNumber?){
         if(speed != nil){
-            _speed = -1.0 * speed!.floatValue
+            self._speed = -1.0 * speed!.floatValue
         }
         if(radius != nil){
-            _radius = radius!.floatValue
+            self._radius = radius!.floatValue
         }
     }
     
     override func stopDriving(){
-        _speed = 0.0
-        _radius = 0.0
+        self._speed = 0.0
+        self._radius = 0.0
     }
     
     override func headingUp(){

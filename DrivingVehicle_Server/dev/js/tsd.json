@@ -6,28 +6,28 @@
   "bundle": "dev/js/typings/tsd.d.ts",
   "installed": {
     "peerjs/peerjs.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "webrtc/RTCPeerConnection.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "webrtc/MediaStream.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "gamepad/gamepad.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "eventemitter2/eventemitter2.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "jquery/jquery.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "lodash/lodash.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     },
     "es6-promise/es6-promise.d.ts": {
-      "commit": "49a710b4682cb1830ba35a354c99896b7f0d0fa0"
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
     }
   }
 }

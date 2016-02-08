@@ -8,8 +8,8 @@ This app is currently compatible with Swift2
  1. Open "DrivingVehicle.xcodeproj"
  1. Download the frameworks below, and copy to the designated folder
     1. Download "SkyWay.framework" from [SkyWay](http://nttcom.github.io/skyway/)
-    1. Download "RMCore.framework", "RMCharacter.framework" and "RMCharacter.bundle" from [Romo SDK for iOS]http://www.romotive.com/developers/) and unzip
-    1. Clone or download "DoubleControlSDK.framework" from [Double's SDK](https://github.com/doubleroboticsBasic-Control-SDK-iOS)
+    1. Download "RMCore.framework", "RMCharacter.framework" and "RMCharacter.bundle" from [Romo SDK for iOS](https://github.com/Romotive/Romo/tree/master/SDK/Public/frameworks)
+    1. Clone or download "DoubleControlSDK.framework" from [Double's SDK](https://github.com/doublerobotics/Basic-Control-SDK-iOS)
     1. Copy all files to ./DrivingVehicle/frameworks
  1. Add all frameworks to Target (Romo/Double)
     1. Add "SkyWay.framework", "RMCore.framework", "RMCharacter.framework" and "DoubleControlSDK.framework"library to the "Link Binary With Libraries" build phase
@@ -40,8 +40,8 @@ Romo/Doubleに接続するiOS端末用アプリ。
  1. "DrivingVehicle.xcodeproj"を開く
  1. 必要なframeworkをダウンロードして指定のフォルダにコピー
     1. "SkyWay.framework"を[SkyWay](http://nttcom.github.io/skyway/)からダウンロード
-    1. "RMCore.framework"、"RMCharacter.framework"、"RMCharacter.bundle"を[RomoのSDKダウンロードページ](http://ww.romotive.com/developers/)からSDKをダウンロードして解凍する
-    1. "DoubleControlSDK.framework"を[DoubleのSDKページ](https://github.com/doublerobotics/Basic-Control-SDKiOS)をクローンまたはダウンロード
+    1. "RMCore.framework"、"RMCharacter.framework"、"RMCharacter.bundle"を[RomoのSDKページ](https://github.com/Romotive/Romo/tree/master/SDK/Public/frameworks)からSDKをダウンロードする
+    1. "DoubleControlSDK.framework"を[DoubleのSDKページ](https://github.com/doublerobotics/Basic-Control-SDK-iOS)をクローンまたはダウンロード
     1. 上に記載のファイルを./DrivingVehicle/frameworksにコピー
  1. 各フレームワークをTarget(Romo及びDouble)に追加
     1. "SkyWay.framework"、"RMCore.framework"、"RMCharacter.framework"、"DoubleControlSDK.framework"をBuildPhasesの"Link Binary With Libraries"に追加する

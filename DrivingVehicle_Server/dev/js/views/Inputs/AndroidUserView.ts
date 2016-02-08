@@ -341,10 +341,10 @@ module Vehicle {
 
             if(this._isDouble && $("#SwitchCamera").attr("name") === "Back"){
                 cCtx.scale(-exp,exp);
-                cCtx.drawImage($vEle[0], -vEle.videoWidth, 0);
+                cCtx.drawImage(<HTMLVideoElement> $vEle[0], -vEle.videoWidth, 0);
             }else{
                 cCtx.scale(exp,exp);
-                cCtx.drawImage($vEle[0], 0, 0);
+                cCtx.drawImage(<HTMLVideoElement> $vEle[0], 0, 0);
             }
 
             var img = new Image(cEle.width,cEle.height);
